@@ -1,5 +1,6 @@
 
-import java.util.Date;
+import java.time.LocalDateTime;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,13 +16,13 @@ public abstract class TrainingSession {
     
     private String sessionID;
     private String title;
-    private Date date;
-    private Date time;
+    private LocalDateTime date;
+    private LocalDateTime time;
     private double fee;
     private String status;
     
-    public TrainingSession(String sessionID, String title, Date date,
-            Date time, double fee, String status){
+    public TrainingSession(String sessionID, String title, LocalDateTime date,
+            LocalDateTime time, double fee, String status){
         
         setSessionID(sessionID);
         setTitle(title);
@@ -63,28 +64,28 @@ public abstract class TrainingSession {
     /**
      * @return the date
      */
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
     /**
      * @param date the date to set
      */
-    public void setDate(Date date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
     /**
      * @return the time
      */
-    public Date getTime() {
+    public LocalDateTime getTime() {
         return time;
     }
 
     /**
      * @param time the time to set
      */
-    public void setTime(Date time) {
+    public void setTime(LocalDateTime time) {
         this.time = time;
     }
 
