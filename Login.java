@@ -333,6 +333,9 @@ public class Login extends javax.swing.JFrame {
         loginBtn.setText("LOGIN");
         loginBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         loginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginBtnMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 loginBtnMouseEntered(evt);
             }
@@ -477,7 +480,7 @@ public class Login extends javax.swing.JFrame {
 
         getContentPane().add(Left, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 630));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\norsh\\Documents\\NetBeansProjects\\SE\\src\\image\\bg_4.jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/bg_4.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, -1, 630));
 
         pack();
@@ -592,6 +595,31 @@ public class Login extends javax.swing.JFrame {
     private void emailFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailFMouseClicked
         emailF.setText("");
     }//GEN-LAST:event_emailFMouseClicked
+
+    private void loginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseClicked
+        if (helpfit.getUser().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please register.");
+            return;
+        }
+        boolean authentication = false;
+        
+        for (User aUser: helpfit.getUser()){
+            if(usernameF.getText().equalsIgnoreCase(aUser.getUsername()) &&
+                    passwordF.getText().equals(aUser.getPassword())){
+                authentication = true;
+            }
+        }
+        
+        if (authentication == false){
+            JOptionPane.showMessageDialog(this, "Invalid details.");
+            return;
+        }
+        
+        this.setVisible(false);
+        TrainerHome homepage = new TrainerHome();
+        homepage.setLocationRelativeTo(null);
+        homepage.setVisible(true);
+    }//GEN-LAST:event_loginBtnMouseClicked
 
     /**
      * @param args the command line arguments
