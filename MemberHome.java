@@ -1,6 +1,3 @@
-
-import java.awt.Color;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,14 +8,13 @@ import java.awt.Color;
  *
  * @author Mint
  */
-public class TrainerHome extends javax.swing.JFrame {
+public class MemberHome extends javax.swing.JFrame {
 
     /**
-     * Creates new form Home
+     * Creates new form MemberHome
      */
-    public TrainerHome() {
+    public MemberHome() {
         initComponents();
-        header.setBackground(new Color(38,38,38,100));
     }
 
     /**
@@ -42,9 +38,6 @@ public class TrainerHome extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        header = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         body = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -57,6 +50,9 @@ public class TrainerHome extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        header = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -98,7 +94,7 @@ public class TrainerHome extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("New Training Session");
+        jLabel8.setText("Enroll Training Session");
         jPanel7.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 280, 60));
 
         jPanel8.setBackground(new java.awt.Color(10, 10, 10));
@@ -157,41 +153,6 @@ public class TrainerHome extends javax.swing.JFrame {
 
         getContentPane().add(nav, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 630));
 
-        header.setBackground(new java.awt.Color(38, 38, 38));
-        header.setForeground(new java.awt.Color(255, 255, 255));
-
-        jLabel16.setFont(new java.awt.Font("Century Gothic", 0, 40)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Hello, Trainer Name!");
-
-        jLabel17.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("You may select one of the options below to continue:");
-
-        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
-        header.setLayout(headerLayout);
-        headerLayout.setHorizontalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel16))
-                .addContainerGap(215, Short.MAX_VALUE))
-        );
-        headerLayout.setVerticalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerLayout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
-                .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel17)
-                .addGap(61, 61, 61))
-        );
-
-        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 760, 240));
-
         body.setBackground(new java.awt.Color(25, 24, 28));
 
         jPanel1.setLayout(null);
@@ -223,9 +184,9 @@ public class TrainerHome extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Create New");
+        jLabel12.setText("Enroll New");
         jPanel2.add(jLabel12);
-        jLabel12.setBounds(20, 40, 220, 70);
+        jLabel12.setBounds(30, 40, 220, 70);
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/btntwo.jpg"))); // NOI18N
@@ -282,6 +243,41 @@ public class TrainerHome extends javax.swing.JFrame {
 
         getContentPane().add(body, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 240, 764, 390));
 
+        header.setBackground(new java.awt.Color(38, 38, 38));
+        header.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel16.setFont(new java.awt.Font("Century Gothic", 0, 40)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Hello, Member Name!");
+
+        jLabel17.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText("You may select one of the options below to continue:");
+
+        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
+        header.setLayout(headerLayout);
+        headerLayout.setHorizontalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel16))
+                .addContainerGap(215, Short.MAX_VALUE))
+        );
+        headerLayout.setVerticalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerLayout.createSequentialGroup()
+                .addContainerGap(100, Short.MAX_VALUE)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel17)
+                .addGap(61, 61, 61))
+        );
+
+        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 760, 240));
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/bg_4.jpg"))); // NOI18N
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
@@ -307,23 +303,20 @@ public class TrainerHome extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TrainerHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MemberHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TrainerHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MemberHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TrainerHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MemberHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TrainerHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MemberHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TrainerHome().setVisible(true);
+                new MemberHome().setVisible(true);
             }
         });
     }
