@@ -1,6 +1,5 @@
 
 import java.awt.Color;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /*
@@ -23,6 +22,7 @@ public class Login extends javax.swing.JFrame {
         Left.setBackground(new Color(0,0,0,200));
         this.setLocationRelativeTo(null);
         helpfit = new HELPFit();
+        signupBtn.requestFocusInWindow();
     }
 
     /**
@@ -91,6 +91,7 @@ public class Login extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(242, 146, 22));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("TRAINER");
+        jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel12MouseClicked(evt);
@@ -106,11 +107,6 @@ public class Login extends javax.swing.JFrame {
         userF.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 userFMouseClicked(evt);
-            }
-        });
-        userF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userFActionPerformed(evt);
             }
         });
         jPanel3.add(userF, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 343, 30));
@@ -139,6 +135,7 @@ public class Login extends javax.swing.JFrame {
         createBtn.setForeground(new java.awt.Color(255, 255, 255));
         createBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         createBtn.setText("Create New Account");
+        createBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         createBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 createBtnMouseClicked(evt);
@@ -210,6 +207,7 @@ public class Login extends javax.swing.JFrame {
         jLabel18.setForeground(new java.awt.Color(242, 146, 22));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("MEMBER");
+        jLabel18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel18MouseClicked(evt);
@@ -247,7 +245,6 @@ public class Login extends javax.swing.JFrame {
         jSeparator9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel3.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, 340, 10));
 
-        levelBox.setBackground(new java.awt.Color(25, 24, 28));
         levelBox.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         levelBox.setForeground(new java.awt.Color(255, 255, 255));
         levelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Beginner", "Intermediate", "Expert" }));
@@ -331,6 +328,7 @@ public class Login extends javax.swing.JFrame {
         loginBtn.setForeground(new java.awt.Color(255, 255, 255));
         loginBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         loginBtn.setText("LOGIN");
+        loginBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         loginBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         loginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -424,6 +422,7 @@ public class Login extends javax.swing.JFrame {
         signupBtn.setForeground(new java.awt.Color(255, 255, 255));
         signupBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         signupBtn.setText("SIGN UP");
+        signupBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         signupBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 signupBtnMouseClicked(evt);
@@ -486,10 +485,6 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void userFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_userFActionPerformed
-
     private void signupBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupBtnMouseClicked
         Signup.pack();
         MemberSeperator.setVisible(true);
@@ -501,6 +496,7 @@ public class Login extends javax.swing.JFrame {
         LabelChanger.setText("LEVEL");
         levelBox.setSelectedIndex(0);
         levelBox.setVisible(true);
+        jSeparator9.setVisible(false);
         Signup.setVisible(true);
         TrainerSeperator.setVisible(false);
         specialtyBox.setVisible(false);
@@ -537,6 +533,7 @@ public class Login extends javax.swing.JFrame {
         LabelChanger.setText("SPECIALTY");
         levelBox.setVisible(false);
         specialtyBox.setVisible(true);
+        jSeparator9.setVisible(true);
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
@@ -545,10 +542,11 @@ public class Login extends javax.swing.JFrame {
         LabelChanger.setText("LEVEL");
         levelBox.setVisible(true);
         specialtyBox.setVisible(false);
+        jSeparator9.setVisible(false);
     }//GEN-LAST:event_jLabel18MouseClicked
 
     private void createBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createBtnMouseClicked
-        for (User aUser:helpfit.getUser()){
+        for (User aUser:getHelpfit().getUser()){
             if (aUser.getUsername().equalsIgnoreCase(userF.getText())){
                 JOptionPane.showMessageDialog(Signup, "Username has been taken!");
                 return;
@@ -558,12 +556,12 @@ public class Login extends javax.swing.JFrame {
         Signup.setVisible(false);
         
         if (MemberSeperator.isVisible()){
-            helpfit.getUser().add(new Member(userF.getText(),passF.getText(),
+            getHelpfit().getUser().add(new Member(userF.getText(),passF.getText(),
             nameF.getText(),emailF.getText(),
                     levelBox.getSelectedItem().toString()));
         }
         else{
-            helpfit.getUser().add(new Trainer(userF.getText(),passF.getText(),
+            getHelpfit().getUser().add(new Trainer(userF.getText(),passF.getText(),
             nameF.getText(),emailF.getText(),specialtyBox.getText()));
         }
     }//GEN-LAST:event_createBtnMouseClicked
@@ -597,28 +595,38 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_emailFMouseClicked
 
     private void loginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseClicked
-        if (helpfit.getUser().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please register.");
+        if (getHelpfit().getUser().isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "Please register an account first.");
             return;
         }
         boolean authentication = false;
         
-        for (User aUser: helpfit.getUser()){
+        for (User aUser: getHelpfit().getUser()){
             if(usernameF.getText().equalsIgnoreCase(aUser.getUsername()) &&
                     passwordF.getText().equals(aUser.getPassword())){
                 authentication = true;
+                loginUser = aUser;
             }
         }
-        
         if (authentication == false){
             JOptionPane.showMessageDialog(this, "Invalid details.");
             return;
         }
-        
         this.setVisible(false);
-        TrainerHome homepage = new TrainerHome();
-        homepage.setLocationRelativeTo(null);
-        homepage.setVisible(true);
+        
+        if (loginUser instanceof Trainer){
+            TrainerHome homepage = new TrainerHome(helpfit,
+                    usernameF.getText(), this);
+            homepage.setLocationRelativeTo(null);
+            homepage.setVisible(true);
+        }
+        else{
+            MemberHome homepage = new MemberHome(helpfit,
+                    usernameF.getText(), this);
+            homepage.setLocationRelativeTo(null);
+            homepage.setVisible(true);
+        }
     }//GEN-LAST:event_loginBtnMouseClicked
 
     /**
@@ -655,6 +663,8 @@ public class Login extends javax.swing.JFrame {
             }
         });
     }
+    
+    private User loginUser;
     private HELPFit helpfit;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelChanger;
@@ -701,4 +711,18 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField userF;
     private javax.swing.JTextField usernameF;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the helpfit
+     */
+    public HELPFit getHelpfit() {
+        return helpfit;
+    }
+
+    /**
+     * @param helpfit the helpfit to set
+     */
+    public void setHelpfit(HELPFit helpfit) {
+        this.helpfit = helpfit;
+    }
 }
