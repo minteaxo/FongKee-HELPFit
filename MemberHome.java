@@ -598,6 +598,7 @@ public class MemberHome extends javax.swing.JFrame {
         contentHeader.setVisible(true);
         body.setVisible(false);
         header.setVisible(false);
+        updatemsg.setText("");
     }//GEN-LAST:event_profileBtnMouseClicked
 
     private void updateBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateBtnMouseClicked
@@ -629,7 +630,7 @@ public class MemberHome extends javax.swing.JFrame {
         contentHeader.setVisible(false);
         body.setVisible(true);
         header.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
         login.setVisible(true);
     }//GEN-LAST:event_logoutBtnMouseClicked
 

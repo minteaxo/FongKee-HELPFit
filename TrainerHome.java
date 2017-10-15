@@ -34,6 +34,7 @@ public class TrainerHome extends javax.swing.JFrame {
         contentHeader.setBackground(new Color(38,38,38,100));
         contentHeader.setVisible(false);
         profile.setVisible(false);
+        newTraining.setVisible(false);
         usernameLabel.setText(getUser().getUsername());
         welcomemsg.setText("Hello, Trainer " + getUser().getName());
         
@@ -57,12 +58,36 @@ public class TrainerHome extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         logoutBtn = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
-        enrollBtn = new javax.swing.JLabel();
+        createBtn = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         viewBtn = new javax.swing.JLabel();
         contentHeader = new javax.swing.JPanel();
+        headerTitle = new javax.swing.JLabel();
+        headerDesc = new javax.swing.JLabel();
+        newTraining = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        createmsg = new javax.swing.JLabel();
+        jSeparator12 = new javax.swing.JSeparator();
+        userF1 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jSeparator13 = new javax.swing.JSeparator();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        nameF1 = new javax.swing.JTextField();
+        jSeparator15 = new javax.swing.JSeparator();
+        jPanel6 = new javax.swing.JPanel();
+        createSession = new javax.swing.JLabel();
+        jSeparator16 = new javax.swing.JSeparator();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        feeF = new javax.swing.JTextField();
+        classtype = new javax.swing.JComboBox<>();
         jLabel18 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        pSeperator = new javax.swing.JSeparator();
+        gSeperator = new javax.swing.JSeparator();
+        jLabel12 = new javax.swing.JLabel();
         profile = new javax.swing.JPanel();
         updatemsg = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
@@ -157,20 +182,23 @@ public class TrainerHome extends javax.swing.JFrame {
         jPanel10.setBackground(new java.awt.Color(10, 10, 10));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        enrollBtn.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        enrollBtn.setForeground(new java.awt.Color(255, 255, 255));
-        enrollBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        enrollBtn.setText("Enroll Training Session");
-        enrollBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        enrollBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        createBtn.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        createBtn.setForeground(new java.awt.Color(255, 255, 255));
+        createBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        createBtn.setText("Create Training Session");
+        createBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        createBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                createBtnMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enrollBtnMouseEntered(evt);
+                createBtnMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enrollBtnMouseExited(evt);
+                createBtnMouseExited(evt);
             }
         });
-        jPanel10.add(enrollBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 280, 60));
+        jPanel10.add(createBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 280, 60));
 
         jPanel11.setBackground(new java.awt.Color(10, 10, 10));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -236,13 +264,13 @@ public class TrainerHome extends javax.swing.JFrame {
 
         contentHeader.setBackground(new java.awt.Color(38, 38, 38));
 
-        jLabel18.setFont(new java.awt.Font("Century Gothic", 0, 40)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("Trainer Profile");
+        headerTitle.setFont(new java.awt.Font("Century Gothic", 0, 40)); // NOI18N
+        headerTitle.setForeground(new java.awt.Color(255, 255, 255));
+        headerTitle.setText("Trainer Profile");
 
-        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(242, 146, 22));
-        jLabel6.setText("Account Settings");
+        headerDesc.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
+        headerDesc.setForeground(new java.awt.Color(242, 146, 22));
+        headerDesc.setText("Account Settings");
 
         javax.swing.GroupLayout contentHeaderLayout = new javax.swing.GroupLayout(contentHeader);
         contentHeader.setLayout(contentHeaderLayout);
@@ -251,9 +279,9 @@ public class TrainerHome extends javax.swing.JFrame {
             .addGroup(contentHeaderLayout.createSequentialGroup()
                 .addGap(82, 82, 82)
                 .addGroup(contentHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(headerDesc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(contentHeaderLayout.createSequentialGroup()
-                        .addComponent(jLabel18)
+                        .addComponent(headerTitle)
                         .addGap(0, 422, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -261,13 +289,181 @@ public class TrainerHome extends javax.swing.JFrame {
             contentHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentHeaderLayout.createSequentialGroup()
                 .addContainerGap(64, Short.MAX_VALUE)
-                .addComponent(jLabel18)
+                .addComponent(headerTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
+                .addComponent(headerDesc)
                 .addGap(14, 14, 14))
         );
 
         getContentPane().add(contentHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 770, 160));
+
+        newTraining.setBackground(new java.awt.Color(25, 24, 28));
+        newTraining.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel26.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(242, 146, 22));
+        jLabel26.setText("Back");
+        jLabel26.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel26MouseClicked(evt);
+            }
+        });
+        newTraining.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 60, 30));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/back.png"))); // NOI18N
+        jLabel5.setText("jLabel3");
+        newTraining.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 30, 30));
+
+        createmsg.setBackground(new java.awt.Color(204, 0, 0));
+        createmsg.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        createmsg.setForeground(new java.awt.Color(255, 51, 51));
+        newTraining.add(createmsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 700, 30));
+
+        jSeparator12.setBackground(new java.awt.Color(242, 146, 22));
+        jSeparator12.setForeground(new java.awt.Color(242, 146, 22));
+        newTraining.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 340, 10));
+
+        userF1.setBackground(new java.awt.Color(25, 24, 28));
+        userF1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        userF1.setForeground(new java.awt.Color(255, 255, 255));
+        userF1.setText("Weightlifting Foundations");
+        userF1.setBorder(null);
+        newTraining.add(userF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 343, 30));
+
+        jLabel15.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(242, 146, 22));
+        jLabel15.setText("DATE");
+        newTraining.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+
+        jSeparator13.setBackground(new java.awt.Color(242, 146, 22));
+        jSeparator13.setForeground(new java.awt.Color(242, 146, 22));
+        jSeparator13.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        newTraining.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 340, 10));
+
+        jLabel23.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(242, 146, 22));
+        jLabel23.setText("MAXIMUM NUMBER OF PARTICIPANTS");
+        newTraining.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, 40));
+
+        jLabel27.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(242, 146, 22));
+        jLabel27.setText("CLASS TYPE");
+        newTraining.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, -1, -1));
+
+        jLabel24.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(242, 146, 22));
+        jLabel24.setText("FEE");
+        newTraining.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, -1, -1));
+
+        nameF1.setBackground(new java.awt.Color(25, 24, 28));
+        nameF1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        nameF1.setForeground(new java.awt.Color(255, 255, 255));
+        nameF1.setText("RM");
+        nameF1.setBorder(null);
+        nameF1.setFocusable(false);
+        newTraining.add(nameF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 30, 30));
+
+        jSeparator15.setBackground(new java.awt.Color(242, 146, 22));
+        jSeparator15.setForeground(new java.awt.Color(242, 146, 22));
+        jSeparator15.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        newTraining.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 340, 10));
+
+        jPanel6.setBackground(new java.awt.Color(25, 24, 28));
+        jPanel6.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(242, 146, 22)));
+
+        createSession.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        createSession.setForeground(new java.awt.Color(255, 255, 255));
+        createSession.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        createSession.setText("Create New Session");
+        createSession.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        createSession.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                createSessionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                createSessionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                createSessionMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(createSession, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(createSession, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        newTraining.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 340, -1));
+
+        jSeparator16.setBackground(new java.awt.Color(242, 146, 22));
+        jSeparator16.setForeground(new java.awt.Color(242, 146, 22));
+        jSeparator16.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        newTraining.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 340, 10));
+
+        jLabel16.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(242, 146, 22));
+        jLabel16.setText("TIME");
+        newTraining.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, -1, -1));
+
+        jLabel25.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(242, 146, 22));
+        jLabel25.setText("TITLE");
+        newTraining.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+
+        feeF.setBackground(new java.awt.Color(25, 24, 28));
+        feeF.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        feeF.setForeground(new java.awt.Color(255, 255, 255));
+        feeF.setText("500.00");
+        feeF.setBorder(null);
+        newTraining.add(feeF, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 320, 30));
+
+        classtype.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        classtype.setForeground(new java.awt.Color(255, 255, 255));
+        classtype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dance", "MMA", "Sport" }));
+        newTraining.add(classtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 340, -1));
+
+        jLabel18.setBackground(new java.awt.Color(242, 146, 22));
+        jLabel18.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(242, 146, 22));
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("PERSONAL");
+        jLabel18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel18MouseClicked(evt);
+            }
+        });
+        newTraining.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 350, 40));
+
+        pSeperator.setBackground(new java.awt.Color(242, 146, 22));
+        pSeperator.setForeground(new java.awt.Color(242, 146, 22));
+        newTraining.add(pSeperator, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 350, 10));
+
+        gSeperator.setBackground(new java.awt.Color(242, 146, 22));
+        gSeperator.setForeground(new java.awt.Color(242, 146, 22));
+        newTraining.add(gSeperator, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 350, 10));
+
+        jLabel12.setBackground(new java.awt.Color(242, 146, 22));
+        jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(242, 146, 22));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("GROUP");
+        jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
+        newTraining.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 350, 40));
+
+        getContentPane().add(newTraining, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 770, 470));
 
         profile.setBackground(new java.awt.Color(25, 24, 28));
         profile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -538,10 +734,14 @@ public class TrainerHome extends javax.swing.JFrame {
         cpassF.setText("");
         emailF.setText(getUser().getEmail());
         specialtyBox.setText(getUser().getSpecialty());
+        headerTitle.setText("Trainer Profile");
+        headerDesc.setText("Account Settings");
         profile.setVisible(true);
         contentHeader.setVisible(true);
         body.setVisible(false);
         header.setVisible(false);
+        newTraining.setVisible(false);
+        updatemsg.setText("");
     }//GEN-LAST:event_profileBtnMouseClicked
 
     private void profileBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileBtnMouseEntered
@@ -564,15 +764,15 @@ public class TrainerHome extends javax.swing.JFrame {
         logoutBtn.setForeground(Color.WHITE);
     }//GEN-LAST:event_logoutBtnMouseExited
 
-    private void enrollBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrollBtnMouseEntered
+    private void createBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createBtnMouseEntered
         jPanel10.setBackground(new Color(242,146,22));
-        enrollBtn.setForeground(Color.BLACK);
-    }//GEN-LAST:event_enrollBtnMouseEntered
+        createBtn.setForeground(Color.BLACK);
+    }//GEN-LAST:event_createBtnMouseEntered
 
-    private void enrollBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrollBtnMouseExited
+    private void createBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createBtnMouseExited
         jPanel10.setBackground(new Color(10,10,10));
-        enrollBtn.setForeground(Color.WHITE);
-    }//GEN-LAST:event_enrollBtnMouseExited
+        createBtn.setForeground(Color.WHITE);
+    }//GEN-LAST:event_createBtnMouseExited
 
     private void viewBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewBtnMouseEntered
         jPanel11.setBackground(new Color(242,146,22));
@@ -605,17 +805,74 @@ public class TrainerHome extends javax.swing.JFrame {
         contentHeader.setVisible(false);
         body.setVisible(true);
         header.setVisible(true);
+        newTraining.setVisible(false);
         updatemsg.setText("");
     }//GEN-LAST:event_jLabel20MouseClicked
 
     private void logoutBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutBtnMouseClicked
         profile.setVisible(false);
         contentHeader.setVisible(false);
+        newTraining.setVisible(false);
         body.setVisible(true);
         header.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
         login.setVisible(true);
     }//GEN-LAST:event_logoutBtnMouseClicked
+
+    private void createSessionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createSessionMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_createSessionMouseClicked
+
+    private void createSessionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createSessionMouseEntered
+        createSession.setForeground(new Color(242,146,22));
+    }//GEN-LAST:event_createSessionMouseEntered
+
+    private void createSessionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createSessionMouseExited
+        createSession.setForeground(new Color(255,255,255));
+    }//GEN-LAST:event_createSessionMouseExited
+
+    private void jLabel26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel26MouseClicked
+        newTraining.setVisible(false);
+        contentHeader.setVisible(false);
+        body.setVisible(true);
+        header.setVisible(true);
+        profile.setVisible(false);
+        createmsg.setText("");
+    }//GEN-LAST:event_jLabel26MouseClicked
+
+    private void createBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createBtnMouseClicked
+        newTraining.setVisible(true);
+        contentHeader.setVisible(true);
+        body.setVisible(false);
+        header.setVisible(false);
+        profile.setVisible(false);
+        createmsg.setText("");
+        pSeperator.setVisible(true);
+        gSeperator.setVisible(false);
+        jLabel23.setVisible(false);
+        jLabel27.setVisible(false);
+        classtype.setVisible(false);
+        headerTitle.setText("Create New Training Session");
+        headerDesc.setText("");
+    }//GEN-LAST:event_createBtnMouseClicked
+
+    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+        gSeperator.setVisible(false);
+        pSeperator.setVisible(true);
+        gSeperator.setVisible(false);
+        jLabel23.setVisible(false);
+        jLabel27.setVisible(false);
+        classtype.setVisible(false);
+    }//GEN-LAST:event_jLabel18MouseClicked
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+        gSeperator.setVisible(true);
+        pSeperator.setVisible(false);
+        gSeperator.setVisible(true);
+        jLabel23.setVisible(true);
+        jLabel27.setVisible(true);
+        classtype.setVisible(true);
+    }//GEN-LAST:event_jLabel12MouseClicked
 
     private HELPFit helpfit;
     private String username;
@@ -623,32 +880,52 @@ public class TrainerHome extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelChanger;
     private javax.swing.JPanel body;
+    private javax.swing.JComboBox<String> classtype;
     private javax.swing.JPanel contentHeader;
     private javax.swing.JPasswordField cpassF;
+    private javax.swing.JLabel createBtn;
+    private javax.swing.JLabel createSession;
+    private javax.swing.JLabel createmsg;
     private javax.swing.JTextField emailF;
-    private javax.swing.JLabel enrollBtn;
+    private javax.swing.JTextField feeF;
+    private javax.swing.JSeparator gSeperator;
     private javax.swing.JPanel header;
+    private javax.swing.JLabel headerDesc;
+    private javax.swing.JLabel headerTitle;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator13;
+    private javax.swing.JSeparator jSeparator15;
+    private javax.swing.JSeparator jSeparator16;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
@@ -656,7 +933,10 @@ public class TrainerHome extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JLabel logoutBtn;
     private javax.swing.JTextField nameF;
+    private javax.swing.JTextField nameF1;
     private javax.swing.JPanel nav;
+    private javax.swing.JPanel newTraining;
+    private javax.swing.JSeparator pSeperator;
     private javax.swing.JPasswordField passF;
     private javax.swing.JPanel profile;
     private javax.swing.JLabel profileBtn;
@@ -665,6 +945,7 @@ public class TrainerHome extends javax.swing.JFrame {
     private javax.swing.JLabel updateBtn;
     private javax.swing.JLabel updatemsg;
     private javax.swing.JTextField userF;
+    private javax.swing.JTextField userF1;
     private javax.swing.JLabel usernameLabel;
     private javax.swing.JLabel viewBtn;
     private javax.swing.JLabel welcomemsg;

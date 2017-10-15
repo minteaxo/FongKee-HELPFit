@@ -613,7 +613,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Invalid details.");
             return;
         }
-        this.setVisible(false);
+        this.dispose();
         
         if (loginUser instanceof Trainer){
             TrainerHome homepage = new TrainerHome(helpfit,
