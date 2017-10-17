@@ -26,6 +26,7 @@ public class MemberHome extends javax.swing.JFrame {
         DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
         headerRenderer.setBackground(Color.WHITE);
         headerRenderer.setForeground(Color.BLACK);
+        historytb.setModel(new TrainingModel(helpfit));
 
         for (int i = 0; i < sessionTable.getModel().getColumnCount(); i++) {
                 sessionTable.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
@@ -47,21 +48,6 @@ public class MemberHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        nav = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        usernameLabel = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        profileBtn = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        logoutBtn = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
-        enrollBtn = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
-        viewBtn = new javax.swing.JLabel();
-        contentHeader = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         profile = new javax.swing.JPanel();
         profileBack = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
@@ -85,188 +71,42 @@ public class MemberHome extends javax.swing.JFrame {
         updatemsg = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        header = new javax.swing.JPanel();
-        welcomemsg = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        history = new javax.swing.JPanel();
+        profileBack1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        historytb = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        revBtn = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        dropBtn = new javax.swing.JLabel();
+        nav = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        usernameLabel = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        profileBtn = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        logoutBtn = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        enrollBtn = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        viewBtn = new javax.swing.JLabel();
+        contentHeader = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         body = new javax.swing.JPanel();
         body1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         sessionTable = new javax.swing.JTable();
         jLabel18 = new javax.swing.JLabel();
+        header = new javax.swing.JPanel();
+        welcomemsg = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        nav.setBackground(new java.awt.Color(0, 0, 0));
-
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("HELPFit");
-
-        usernameLabel.setBackground(new java.awt.Color(255, 255, 255));
-        usernameLabel.setFont(new java.awt.Font("Century Gothic", 0, 27)); // NOI18N
-        usernameLabel.setForeground(new java.awt.Color(153, 153, 153));
-        usernameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        usernameLabel.setText("User100,");
-
-        jPanel3.setBackground(new java.awt.Color(10, 10, 10));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        profileBtn.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        profileBtn.setForeground(new java.awt.Color(255, 255, 255));
-        profileBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        profileBtn.setText("Edit Profile");
-        profileBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        profileBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                profileBtnMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                profileBtnMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                profileBtnMouseExited(evt);
-            }
-        });
-        jPanel3.add(profileBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 280, 60));
-
-        jPanel6.setBackground(new java.awt.Color(10, 10, 10));
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        logoutBtn.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
-        logoutBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoutBtn.setText("Logout");
-        logoutBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        logoutBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutBtnMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                logoutBtnMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                logoutBtnMouseExited(evt);
-            }
-        });
-        jPanel6.add(logoutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 280, 60));
-
-        jPanel7.setBackground(new java.awt.Color(10, 10, 10));
-        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        enrollBtn.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        enrollBtn.setForeground(new java.awt.Color(255, 255, 255));
-        enrollBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        enrollBtn.setText("Enroll Training Session");
-        enrollBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        enrollBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enrollBtnMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                enrollBtnMouseExited(evt);
-            }
-        });
-        jPanel7.add(enrollBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 280, 60));
-
-        jPanel8.setBackground(new java.awt.Color(10, 10, 10));
-        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        viewBtn.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        viewBtn.setForeground(new java.awt.Color(255, 255, 255));
-        viewBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        viewBtn.setText("View Training Session");
-        viewBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        viewBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                viewBtnMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                viewBtnMouseExited(evt);
-            }
-        });
-        jPanel8.add(viewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 280, 60));
-
-        javax.swing.GroupLayout navLayout = new javax.swing.GroupLayout(nav);
-        nav.setLayout(navLayout);
-        navLayout.setHorizontalGroup(
-            navLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(navLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(navLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navLayout.createSequentialGroup()
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(usernameLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        navLayout.setVerticalGroup(
-            navLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(navLayout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(usernameLabel)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
-        );
-
-        getContentPane().add(nav, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 630));
-
-        contentHeader.setBackground(new java.awt.Color(38, 38, 38));
-
-        jLabel17.setFont(new java.awt.Font("Century Gothic", 0, 40)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("Member Profile");
-
-        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(242, 146, 22));
-        jLabel5.setText("Account Settings");
-
-        javax.swing.GroupLayout contentHeaderLayout = new javax.swing.GroupLayout(contentHeader);
-        contentHeader.setLayout(contentHeaderLayout);
-        contentHeaderLayout.setHorizontalGroup(
-            contentHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentHeaderLayout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addGroup(contentHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(contentHeaderLayout.createSequentialGroup()
-                        .addComponent(jLabel17)
-                        .addGap(0, 381, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        contentHeaderLayout.setVerticalGroup(
-            contentHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentHeaderLayout.createSequentialGroup()
-                .addContainerGap(64, Short.MAX_VALUE)
-                .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addGap(14, 14, 14))
-        );
-
-        getContentPane().add(contentHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 770, 160));
 
         profile.setBackground(new java.awt.Color(25, 24, 28));
         profile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -420,40 +260,266 @@ public class MemberHome extends javax.swing.JFrame {
 
         getContentPane().add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 770, 470));
 
-        header.setBackground(new java.awt.Color(38, 38, 38));
-        header.setForeground(new java.awt.Color(255, 255, 255));
+        history.setBackground(new java.awt.Color(25, 24, 28));
+        history.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        welcomemsg.setFont(new java.awt.Font("Century Gothic", 0, 40)); // NOI18N
-        welcomemsg.setForeground(new java.awt.Color(255, 255, 255));
-        welcomemsg.setText("Hello, Member Name!");
+        profileBack1.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
+        profileBack1.setForeground(new java.awt.Color(242, 146, 22));
+        profileBack1.setText("Back");
+        profileBack1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        profileBack1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                profileBack1MouseClicked(evt);
+            }
+        });
+        history.add(profileBack1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 60, 30));
 
-        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel4.setText("Welcome back.");
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/back.png"))); // NOI18N
+        jLabel6.setText("jLabel3");
+        history.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 30, 30));
 
-        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
-        header.setLayout(headerLayout);
-        headerLayout.setHorizontalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(welcomemsg))
-                .addContainerGap(259, Short.MAX_VALUE))
+        historytb.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(historytb);
+
+        history.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 700, 310));
+
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(242, 146, 22)));
+
+        revBtn.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        revBtn.setForeground(new java.awt.Color(255, 255, 255));
+        revBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        revBtn.setText("Review");
+        revBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        revBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                revBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                revBtnMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(revBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
         );
-        headerLayout.setVerticalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerLayout.createSequentialGroup()
-                .addContainerGap(109, Short.MAX_VALUE)
-                .addComponent(welcomemsg)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(revBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+        );
+
+        history.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, -1, -1));
+
+        jPanel5.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel5.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(242, 146, 22)));
+
+        dropBtn.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        dropBtn.setForeground(new java.awt.Color(255, 255, 255));
+        dropBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        dropBtn.setText("Drop");
+        dropBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        dropBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dropBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                dropBtnMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(dropBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(dropBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+        );
+
+        history.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, -1, -1));
+
+        getContentPane().add(history, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 770, 470));
+
+        nav.setBackground(new java.awt.Color(0, 0, 0));
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("HELPFit");
+
+        usernameLabel.setBackground(new java.awt.Color(255, 255, 255));
+        usernameLabel.setFont(new java.awt.Font("Century Gothic", 0, 27)); // NOI18N
+        usernameLabel.setForeground(new java.awt.Color(153, 153, 153));
+        usernameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        usernameLabel.setText("User100,");
+
+        jPanel3.setBackground(new java.awt.Color(10, 10, 10));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        profileBtn.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        profileBtn.setForeground(new java.awt.Color(255, 255, 255));
+        profileBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        profileBtn.setText("Edit Profile");
+        profileBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        profileBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                profileBtnMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                profileBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                profileBtnMouseExited(evt);
+            }
+        });
+        jPanel3.add(profileBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 280, 60));
+
+        jPanel6.setBackground(new java.awt.Color(10, 10, 10));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        logoutBtn.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
+        logoutBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logoutBtn.setText("Logout");
+        logoutBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logoutBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutBtnMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logoutBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                logoutBtnMouseExited(evt);
+            }
+        });
+        jPanel6.add(logoutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 280, 60));
+
+        jPanel7.setBackground(new java.awt.Color(10, 10, 10));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        enrollBtn.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        enrollBtn.setForeground(new java.awt.Color(255, 255, 255));
+        enrollBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        enrollBtn.setText("Enroll Training Session");
+        enrollBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        enrollBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                enrollBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                enrollBtnMouseExited(evt);
+            }
+        });
+        jPanel7.add(enrollBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 280, 60));
+
+        jPanel8.setBackground(new java.awt.Color(10, 10, 10));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        viewBtn.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        viewBtn.setForeground(new java.awt.Color(255, 255, 255));
+        viewBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        viewBtn.setText("View Training Session");
+        viewBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        viewBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                viewBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                viewBtnMouseExited(evt);
+            }
+        });
+        jPanel8.add(viewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 280, 60));
+
+        javax.swing.GroupLayout navLayout = new javax.swing.GroupLayout(nav);
+        nav.setLayout(navLayout);
+        navLayout.setHorizontalGroup(
+            navLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(navLayout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(navLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navLayout.createSequentialGroup()
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(usernameLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        navLayout.setVerticalGroup(
+            navLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(navLayout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(usernameLabel)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
         );
 
-        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 760, 240));
+        getContentPane().add(nav, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 630));
+
+        contentHeader.setBackground(new java.awt.Color(38, 38, 38));
+
+        jLabel17.setFont(new java.awt.Font("Century Gothic", 0, 40)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Member Profile");
+
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(242, 146, 22));
+        jLabel5.setText("Account Settins");
+
+        javax.swing.GroupLayout contentHeaderLayout = new javax.swing.GroupLayout(contentHeader);
+        contentHeader.setLayout(contentHeaderLayout);
+        contentHeaderLayout.setHorizontalGroup(
+            contentHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentHeaderLayout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addGroup(contentHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 662, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        contentHeaderLayout.setVerticalGroup(
+            contentHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentHeaderLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jLabel17)
+                .addGap(16, 16, 16)
+                .addComponent(jLabel5))
+        );
+
+        getContentPane().add(contentHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 770, 160));
 
         body.setBackground(new java.awt.Color(25, 24, 28));
 
@@ -529,6 +595,41 @@ public class MemberHome extends javax.swing.JFrame {
         );
 
         getContentPane().add(body, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 240, 764, 390));
+
+        header.setBackground(new java.awt.Color(38, 38, 38));
+        header.setForeground(new java.awt.Color(255, 255, 255));
+
+        welcomemsg.setFont(new java.awt.Font("Century Gothic", 0, 40)); // NOI18N
+        welcomemsg.setForeground(new java.awt.Color(255, 255, 255));
+        welcomemsg.setText("Hello, Member Name!");
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel4.setText("Welcome back.");
+
+        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
+        header.setLayout(headerLayout);
+        headerLayout.setHorizontalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(welcomemsg))
+                .addContainerGap(259, Short.MAX_VALUE))
+        );
+        headerLayout.setVerticalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerLayout.createSequentialGroup()
+                .addContainerGap(109, Short.MAX_VALUE)
+                .addComponent(welcomemsg)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
+        );
+
+        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 760, 240));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/bg_4.jpg"))); // NOI18N
@@ -634,6 +735,26 @@ public class MemberHome extends javax.swing.JFrame {
         login.setVisible(true);
     }//GEN-LAST:event_logoutBtnMouseClicked
 
+    private void profileBack1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileBack1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_profileBack1MouseClicked
+
+    private void revBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_revBtnMouseEntered
+        revBtn.setForeground(new Color(242,146,22));
+    }//GEN-LAST:event_revBtnMouseEntered
+
+    private void revBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_revBtnMouseExited
+        revBtn.setForeground(new Color(255,255,255));
+    }//GEN-LAST:event_revBtnMouseExited
+
+    private void dropBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dropBtnMouseEntered
+        dropBtn.setForeground(new Color(242,146,22));
+    }//GEN-LAST:event_dropBtnMouseEntered
+
+    private void dropBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dropBtnMouseExited
+        dropBtn.setForeground(new Color(255,255,255));
+    }//GEN-LAST:event_dropBtnMouseExited
+
     private HELPFit helpfit;
     private String username;
     private Login login;
@@ -643,9 +764,12 @@ public class MemberHome extends javax.swing.JFrame {
     private javax.swing.JPanel body1;
     private javax.swing.JPanel contentHeader;
     private javax.swing.JPasswordField cpassF;
+    private javax.swing.JLabel dropBtn;
     private javax.swing.JTextField emailF;
     private javax.swing.JLabel enrollBtn;
     private javax.swing.JPanel header;
+    private javax.swing.JPanel history;
+    private javax.swing.JTable historytb;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -658,12 +782,16 @@ public class MemberHome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator6;
@@ -677,7 +805,9 @@ public class MemberHome extends javax.swing.JFrame {
     private javax.swing.JPasswordField passF;
     private javax.swing.JPanel profile;
     private javax.swing.JLabel profileBack;
+    private javax.swing.JLabel profileBack1;
     private javax.swing.JLabel profileBtn;
+    private javax.swing.JLabel revBtn;
     private javax.swing.JTable sessionTable;
     private javax.swing.JLabel updateBtn;
     private javax.swing.JLabel updatemsg;
@@ -726,4 +856,6 @@ public class MemberHome extends javax.swing.JFrame {
     public void setLogin(Login login) {
         this.login = login;
     }
+    
+    
 }

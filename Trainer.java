@@ -8,9 +8,13 @@
  *
  * @author Mint
  */
+
+import java.util.ArrayList;
+
 public class Trainer extends User {
     
     private String specialty;
+    private ArrayList<TrainingSession> trainingsession;
     
     public Trainer(String username, String password, String name, 
             String email, String specialty){
@@ -31,6 +35,20 @@ public class Trainer extends User {
      */
     public void setSpecialty(String specialty) {
         this.specialty = specialty;
+    }
+
+    /**
+     * @return the trainingsession
+     */
+    public ArrayList<TrainingSession> getTrainingsession() {
+        return trainingsession;
+    }
+
+    /**
+     * @param trainingsession the trainingsession to set
+     */
+    public void setTrainingsession(ArrayList<TrainingSession> trainingsession) {
+        this.trainingsession = trainingsession;
     }
     
 }
