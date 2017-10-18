@@ -26,12 +26,6 @@ public class TrainerHome extends javax.swing.JFrame {
         DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
         headerRenderer.setBackground(Color.WHITE);
         headerRenderer.setForeground(Color.BLACK);
-        for (int i = 0; i < sessionTable.getModel().getColumnCount(); i++) {
-                sessionTable.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
-        }
-        for (int i = 0; i < historytb.getModel().getColumnCount(); i++) {
-                historytb.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);            
-        }
         jScrollPane1.getViewport().setBackground(sessionTable.getBackground());
         jScrollPane3.getViewport().setBackground(sessionTable.getBackground());
         sessionTable.setColumnSelectionAllowed(false);
@@ -42,6 +36,16 @@ public class TrainerHome extends javax.swing.JFrame {
         usernameLabel.setText(getUser().getUsername());
         welcomemsg.setText("Hello, Trainer " + getUser().getName());
         history.setVisible(false);
+        upcomingModel = new UpcomingTModel(getUser());
+        sessionTable.setModel(upcomingModel);
+        historyModel = new TrainerHistoryModel(getUser());
+        historytb.setModel(historyModel);
+        for (int i = 0; i < sessionTable.getModel().getColumnCount(); i++) {
+                sessionTable.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
+        }
+        for (int i = 0; i < historytb.getModel().getColumnCount(); i++) {
+                historytb.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);            
+        }
     }
 
     /**
@@ -1023,23 +1027,36 @@ public class TrainerHome extends javax.swing.JFrame {
     }//GEN-LAST:event_createSessionMouseEntered
 
     private void createSessionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createSessionMouseClicked
-        double fee = Double.parseDouble(feeF.getText());
-        if (pSeperator.isVisible()){
-            getUser().getTrainingsession().add(new PersonalTraining(titleF.getText(),
-            date.getDate(),time.getTime(),fee,"Available", ""));
-            getHelpfit().getSession().add(new PersonalTraining(titleF.getText(),
-            date.getDate(),time.getTime(),fee,"Available", ""));
+        double fee;
+        
+        try {
+        fee = Double.parseDouble(feeF.getText());
         }
-        else{
-            getUser().getTrainingsession().add(new GroupTraining(titleF.getText(),
-                    date.getDate(),time.getTime(),fee,"Available",
-                    classtype.getSelectedItem().toString(),(int)maxPart.getValue()));
-            getHelpfit().getSession().add(new GroupTraining(titleF.getText(),
-                    date.getDate(),time.getTime(),fee,"Available",
-                    classtype.getSelectedItem().toString(),(int)maxPart.getValue()));
+        catch(NumberFormatException nfe){
+            createmsg.setForeground(Color.red);
+            createmsg.setText("Please enter correct amount of fee.");
+            return;
         }
+        
+            if (pSeperator.isVisible()){
+                getUser().getTrainingsession().add(new PersonalTraining(titleF.getText(),
+                date.getDate(),time.getTime(),fee,"Available", ""));
+                getHelpfit().getSession().add(new PersonalTraining(titleF.getText(),
+                date.getDate(),time.getTime(),fee,"Available", ""));
+            }
+            else{
+                getUser().getTrainingsession().add(new GroupTraining(titleF.getText(),
+                        date.getDate(),time.getTime(),fee,"Available",
+                        classtype.getSelectedItem().toString(),(int)maxPart.getValue()));
+                getHelpfit().getSession().add(new GroupTraining(titleF.getText(),
+                        date.getDate(),time.getTime(),fee,"Available",
+                        classtype.getSelectedItem().toString(),(int)maxPart.getValue()));
+            }
+
         createmsg.setForeground(Color.green);
         createmsg.setText("Successfully added new training session.");
+        upcomingModel.fireTableDataChanged();
+        historyModel.fireTableDataChanged();
     }//GEN-LAST:event_createSessionMouseClicked
 
     private void jLabel26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel26MouseClicked
@@ -1054,6 +1071,8 @@ public class TrainerHome extends javax.swing.JFrame {
     private HELPFit helpfit;
     private String username;
     private Login login;
+    private UpcomingTModel upcomingModel;
+    private TrainerHistoryModel historyModel;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelChanger;
     private javax.swing.JPanel body;

@@ -10,15 +10,15 @@
  */
 
 import javax.swing.table.AbstractTableModel;
-import java.util.ArrayList;
 
-public class TrainerHistoryModel extends AbstractTableModel {
+public class UpcomingMModel extends AbstractTableModel {
     
-    private Trainer trainer;
+    private Member member;
     
-    public TrainerHistoryModel(Trainer trainer) {
-        setTrainer(trainer);
+    public UpcomingMModel(Member member) {
+        setMember(member);
     }
+
     
     public String getColumnName(int col) {
         switch(col) {
@@ -39,7 +39,9 @@ public class TrainerHistoryModel extends AbstractTableModel {
     
     public Object getValueAt(int row, int col) {
         
-        TrainingSession trainingsession = trainer.getTrainingsession().get(row);
+        TrainingSession trainingsession = member.getTrainingsession().get(row);
+        
+        if (!trainingsession.getStatus().equalsIgnoreCase("Completed")){
         
         switch(col) {
             case 0:
@@ -58,10 +60,12 @@ public class TrainerHistoryModel extends AbstractTableModel {
                 else
                     return "Group";
         }
+        }
+        return null;
     }
     
     public int getRowCount() {
-        return getTrainer().getTrainingsession().size();
+        return getMember().getTrainingsession().size();
     }
     
     public int getColumnCount() {
@@ -69,16 +73,18 @@ public class TrainerHistoryModel extends AbstractTableModel {
     }
 
     /**
-     * @return the trainer
+     * @return the member
      */
-    public Trainer getTrainer() {
-        return trainer;
+    public Member getMember() {
+        return member;
     }
 
     /**
-     * @param trainer the trainer to set
+     * @param member the member to set
      */
-    public void setTrainer(Trainer trainer) {
-        this.trainer = trainer;
+    public void setMember(Member member) {
+        this.member = member;
     }
+
+    
 }

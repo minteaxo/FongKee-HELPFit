@@ -26,14 +26,6 @@ public class MemberHome extends javax.swing.JFrame {
         DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
         headerRenderer.setBackground(Color.WHITE);
         headerRenderer.setForeground(Color.BLACK);
-        historytb.setModel(new TrainingModel(getUser()));
-
-        for (int i = 0; i < sessionTable.getModel().getColumnCount(); i++) {
-                sessionTable.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);            
-        }
-        for (int i = 0; i < historytb.getModel().getColumnCount(); i++) {
-                historytb.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);            
-        }  
         jScrollPane1.getViewport().setBackground(sessionTable.getBackground());
         jScrollPane3.getViewport().setBackground(sessionTable.getBackground());
         sessionTable.setColumnSelectionAllowed(false);
@@ -43,6 +35,16 @@ public class MemberHome extends javax.swing.JFrame {
         usernameLabel.setText(getUser().getUsername());
         welcomemsg.setText("Hello, Member " + getUser().getName());
         history.setVisible(false);
+        upcomingModel = new UpcomingMModel(getUser());
+        sessionTable.setModel(upcomingModel);
+        historyModel = new MemberHistoryModel(getUser());
+        historytb.setModel(historyModel);
+        for (int i = 0; i < sessionTable.getModel().getColumnCount(); i++) {
+                sessionTable.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);            
+        }
+        for (int i = 0; i < historytb.getModel().getColumnCount(); i++) {
+                historytb.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);            
+        }  
     }
 
     /**
@@ -786,6 +788,8 @@ public class MemberHome extends javax.swing.JFrame {
     private HELPFit helpfit;
     private String username;
     private Login login;
+    private UpcomingMModel upcomingModel;
+    private MemberHistoryModel historyModel;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelChanger;
     private javax.swing.JPanel body;

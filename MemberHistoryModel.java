@@ -10,13 +10,12 @@
  */
 
 import javax.swing.table.AbstractTableModel;
-import java.util.ArrayList;
 
-public class TrainingModel extends AbstractTableModel {
+public class MemberHistoryModel extends AbstractTableModel {
     
     private Member member;
     
-    public TrainingModel(Member member) {
+    public MemberHistoryModel(Member member) {
         setMember(member);
     }
 
