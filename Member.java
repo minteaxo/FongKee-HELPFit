@@ -35,6 +35,7 @@ public class Member extends User{
         
         super(username, password, name, email);
         setLevel(level);
+        trainingsession = new ArrayList<TrainingSession>();
     }
 
     /**

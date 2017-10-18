@@ -1,5 +1,6 @@
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 
 /*
@@ -14,17 +15,18 @@ import java.time.LocalDateTime;
  */
 public abstract class TrainingSession {
     
+    private static int id = 0001; 
     private String sessionID;
     private String title;
-    private LocalDateTime date;
-    private LocalDateTime time;
+    private LocalDate date;
+    private LocalTime time;
     private double fee;
     private String status;
     
-    public TrainingSession(String sessionID, String title, LocalDateTime date,
-            LocalDateTime time, double fee, String status){
+    public TrainingSession(String title, LocalDate date,
+            LocalTime time, double fee, String status){
         
-        setSessionID(sessionID);
+        setSessionID();
         setTitle(title);
         setDate(date);
         setTime(time);
@@ -43,8 +45,8 @@ public abstract class TrainingSession {
     /**
      * @param sessionID the sessionID to set
      */
-    public void setSessionID(String sessionID) {
-        this.sessionID = sessionID;
+    public void setSessionID() {
+        this.sessionID = "S" + id++;
     }
 
     /**
@@ -64,28 +66,28 @@ public abstract class TrainingSession {
     /**
      * @return the date
      */
-    public LocalDateTime getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
     /**
      * @param date the date to set
      */
-    public void setDate(LocalDateTime date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
     /**
      * @return the time
      */
-    public LocalDateTime getTime() {
+    public LocalTime getTime() {
         return time;
     }
 
     /**
      * @param time the time to set
      */
-    public void setTime(LocalDateTime time) {
+    public void setTime(LocalTime time) {
         this.time = time;
     }
 

@@ -21,6 +21,7 @@ public class Trainer extends User {
     
         super(username, password, name, email);
         setSpecialty(specialty);
+        trainingsession = new ArrayList<TrainingSession>();
     }
 
     /**

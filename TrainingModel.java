@@ -13,25 +13,13 @@ import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 
 public class TrainingModel extends AbstractTableModel {
-    private HELPFit helpfit;
     
-    public TrainingModel(HELPFit helpfit) {
-        setHelpfit(helpfit);
+    private Member member;
+    
+    public TrainingModel(Member member) {
+        setMember(member);
     }
 
-    /**
-     * @return the helpfit
-     */
-    public HELPFit getHelpfit() {
-        return helpfit;
-    }
-
-    /**
-     * @param helpfit the helpfit to set
-     */
-    public void setHelpfit(HELPFit helpfit) {
-        this.helpfit = helpfit;
-    }
     
     public String getColumnName(int col) {
         switch(col) {
@@ -51,11 +39,8 @@ public class TrainingModel extends AbstractTableModel {
     }
     
     public Object getValueAt(int row, int col) {
-        for (User user: getHelpfit().getUser()) {
-            if (user instanceof Member)
-                ((Member) user).getTrainingsession();
-            
-        }
+        
+        TrainingSession trainingsession = member.getTrainingsession().get(row);
         
         switch(col) {
             case 0:
@@ -77,11 +62,25 @@ public class TrainingModel extends AbstractTableModel {
     }
     
     public int getRowCount() {
-        return getHelpfit().getSession().size();
+        return getMember().getTrainingsession().size();
     }
     
     public int getColumnCount() {
         return 6;
+    }
+
+    /**
+     * @return the member
+     */
+    public Member getMember() {
+        return member;
+    }
+
+    /**
+     * @param member the member to set
+     */
+    public void setMember(Member member) {
+        this.member = member;
     }
     
 }

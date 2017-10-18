@@ -1,5 +1,6 @@
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,9 +16,9 @@ public class PersonalTraining extends TrainingSession{
     
     private String notes;
     
-    public PersonalTraining(String sessionID, String title, LocalDateTime date,
-            LocalDateTime time, double fee, String status, String notes){
-        super(sessionID, title, date, time, fee, status);
+    public PersonalTraining(String title, LocalDate date,
+            LocalTime time, double fee, String status, String notes){
+        super(title, date, time, fee, status);
         setNotes(notes);
     }
 
