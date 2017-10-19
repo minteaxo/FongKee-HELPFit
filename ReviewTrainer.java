@@ -16,7 +16,7 @@ public class ReviewTrainer extends javax.swing.JDialog {
     /**
      * Creates new form ReviewTrainer
      */
-    public ReviewTrainer(java.awt.Frame parent, boolean modal) {
+    public ReviewTrainer(java.awt.Frame parent, boolean modal, TrainingSession trainingsession) {
         super(parent, modal);
         initComponents();
     }
@@ -74,7 +74,7 @@ public class ReviewTrainer extends javax.swing.JDialog {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel13.setForeground(new java.awt.Color(255, 153, 0));
         jLabel13.setText("Date");
         jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
@@ -119,12 +119,12 @@ public class ReviewTrainer extends javax.swing.JDialog {
         jPanel3.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 340, 10));
 
         jLabel17.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel17.setForeground(new java.awt.Color(255, 153, 0));
         jLabel17.setText("Title");
         jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel19.setForeground(new java.awt.Color(255, 153, 0));
         jLabel19.setText("Status");
         jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
 
@@ -144,7 +144,7 @@ public class ReviewTrainer extends javax.swing.JDialog {
         jPanel3.add(timeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel20.setForeground(new java.awt.Color(255, 153, 0));
         jLabel20.setText("Time");
         jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
@@ -154,7 +154,7 @@ public class ReviewTrainer extends javax.swing.JDialog {
         jPanel3.add(statLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel21.setForeground(new java.awt.Color(255, 153, 0));
         jLabel21.setText("Fee");
         jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
 
@@ -169,7 +169,7 @@ public class ReviewTrainer extends javax.swing.JDialog {
         jPanel3.add(typeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, -1, -1));
 
         jLabel22.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel22.setForeground(new java.awt.Color(255, 153, 0));
         jLabel22.setText("Type");
         jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, -1, -1));
 
@@ -179,7 +179,7 @@ public class ReviewTrainer extends javax.swing.JDialog {
         jPanel3.add(maxPartLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 540, -1, -1));
 
         MaxPartTitleLabel.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        MaxPartTitleLabel.setForeground(new java.awt.Color(153, 153, 153));
+        MaxPartTitleLabel.setForeground(new java.awt.Color(255, 153, 0));
         MaxPartTitleLabel.setText("maxPartLabel");
         jPanel3.add(MaxPartTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, -1, -1));
 
@@ -189,7 +189,7 @@ public class ReviewTrainer extends javax.swing.JDialog {
         jPanel3.add(numPartLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 610, -1, -1));
 
         jLabel24.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel24.setForeground(new java.awt.Color(255, 153, 0));
         jLabel24.setText("Rating");
         jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
 
@@ -199,7 +199,7 @@ public class ReviewTrainer extends javax.swing.JDialog {
         jPanel3.add(trainerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 680, -1, -1));
 
         jLabel25.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel25.setForeground(new java.awt.Color(255, 153, 0));
         jLabel25.setText("Trainer");
         jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 660, -1, -1));
 
@@ -209,7 +209,7 @@ public class ReviewTrainer extends javax.swing.JDialog {
         jPanel3.add(specialLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 750, -1, -1));
 
         jLabel26.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel26.setForeground(new java.awt.Color(255, 153, 0));
         jLabel26.setText("Specialty");
         jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 730, -1, -1));
 
@@ -220,12 +220,12 @@ public class ReviewTrainer extends javax.swing.JDialog {
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 400, 370, 200));
 
         jLabel27.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel27.setForeground(new java.awt.Color(255, 153, 0));
         jLabel27.setText("Number of Participants");
         jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 590, -1, -1));
 
         jLabel28.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel28.setForeground(new java.awt.Color(255, 153, 0));
         jLabel28.setText("Comments");
         jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, -1, -1));
 
@@ -260,7 +260,7 @@ public class ReviewTrainer extends javax.swing.JDialog {
         jPanel3.add(notesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 540, -1, -1));
 
         NotesTitleLabel.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        NotesTitleLabel.setForeground(new java.awt.Color(153, 153, 153));
+        NotesTitleLabel.setForeground(new java.awt.Color(255, 153, 0));
         NotesTitleLabel.setText("Notes");
         jPanel3.add(NotesTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, -1, -1));
 
@@ -285,48 +285,6 @@ public class ReviewTrainer extends javax.swing.JDialog {
     private void submitBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitBtnMouseEntered
         submitBtn.setForeground(new Color(242,146,22));
     }//GEN-LAST:event_submitBtnMouseEntered
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ReviewTrainer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ReviewTrainer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ReviewTrainer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ReviewTrainer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                ReviewTrainer dialog = new ReviewTrainer(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel MaxPartTitleLabel;
