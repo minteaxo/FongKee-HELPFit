@@ -128,14 +128,17 @@ public class ReviewTrainer extends javax.swing.JDialog {
         jLabel19.setText("Status");
         jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
 
+        titleLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         titleLabel.setForeground(new java.awt.Color(255, 255, 255));
         titleLabel.setText("title");
         jPanel3.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
+        dateLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         dateLabel.setForeground(new java.awt.Color(255, 255, 255));
         dateLabel.setText("date");
         jPanel3.add(dateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
+        timeLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         timeLabel.setForeground(new java.awt.Color(255, 255, 255));
         timeLabel.setText("time");
         jPanel3.add(timeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
@@ -145,6 +148,7 @@ public class ReviewTrainer extends javax.swing.JDialog {
         jLabel20.setText("Time");
         jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
+        statLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         statLabel.setForeground(new java.awt.Color(255, 255, 255));
         statLabel.setText("status");
         jPanel3.add(statLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, -1));
@@ -154,10 +158,12 @@ public class ReviewTrainer extends javax.swing.JDialog {
         jLabel21.setText("Fee");
         jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
 
+        feeLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         feeLabel1.setForeground(new java.awt.Color(255, 255, 255));
         feeLabel1.setText("fee");
         jPanel3.add(feeLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
 
+        typeLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         typeLabel.setForeground(new java.awt.Color(255, 255, 255));
         typeLabel.setText("type");
         jPanel3.add(typeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, -1, -1));
@@ -167,6 +173,7 @@ public class ReviewTrainer extends javax.swing.JDialog {
         jLabel22.setText("Type");
         jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, -1, -1));
 
+        maxPartLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         maxPartLabel.setForeground(new java.awt.Color(255, 255, 255));
         maxPartLabel.setText("max");
         jPanel3.add(maxPartLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 540, -1, -1));
@@ -176,15 +183,17 @@ public class ReviewTrainer extends javax.swing.JDialog {
         MaxPartTitleLabel.setText("maxPartLabel");
         jPanel3.add(MaxPartTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, -1, -1));
 
+        numPartLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         numPartLabel.setForeground(new java.awt.Color(255, 255, 255));
         numPartLabel.setText("number");
         jPanel3.add(numPartLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 610, -1, -1));
 
         jLabel24.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel24.setText("Comments");
+        jLabel24.setText("Rating");
         jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
 
+        trainerLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         trainerLabel.setForeground(new java.awt.Color(255, 255, 255));
         trainerLabel.setText("trainer");
         jPanel3.add(trainerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 680, -1, -1));
@@ -194,6 +203,7 @@ public class ReviewTrainer extends javax.swing.JDialog {
         jLabel25.setText("Trainer");
         jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 660, -1, -1));
 
+        specialLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         specialLabel.setForeground(new java.awt.Color(255, 255, 255));
         specialLabel.setText("specialty");
         jPanel3.add(specialLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 750, -1, -1));
@@ -220,25 +230,31 @@ public class ReviewTrainer extends javax.swing.JDialog {
         jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, -1, -1));
 
         buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton1.setText("1");
         jPanel3.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, -1, -1));
 
         buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton2.setText("5");
         jPanel3.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 280, -1, -1));
 
         buttonGroup1.add(jRadioButton3);
+        jRadioButton3.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton3.setText("2");
         jPanel3.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, -1, -1));
 
         buttonGroup1.add(jRadioButton4);
+        jRadioButton4.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton4.setText("3");
         jPanel3.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, -1, -1));
 
         buttonGroup1.add(jRadioButton5);
+        jRadioButton5.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton5.setText("4");
         jPanel3.add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, -1, -1));
 
+        notesLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         notesLabel.setForeground(new java.awt.Color(255, 255, 255));
         notesLabel.setText("notes");
         jPanel3.add(notesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 540, -1, -1));
