@@ -144,16 +144,16 @@ public class TrainerHome extends javax.swing.JFrame {
 
         nav.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel10.setText("HELPFit");
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("HELPFit");
 
-        usernameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        usernameLabel.setText("User100,");
         usernameLabel.setBackground(new java.awt.Color(255, 255, 255));
         usernameLabel.setFont(new java.awt.Font("Century Gothic", 0, 27)); // NOI18N
         usernameLabel.setForeground(new java.awt.Color(153, 153, 153));
+        usernameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        usernameLabel.setText("User100,");
 
         jPanel5.setBackground(new java.awt.Color(10, 10, 10));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -285,13 +285,13 @@ public class TrainerHome extends javax.swing.JFrame {
 
         contentHeader.setBackground(new java.awt.Color(38, 38, 38));
 
-        headerTitle.setText("Trainer Profile");
         headerTitle.setFont(new java.awt.Font("Century Gothic", 0, 40)); // NOI18N
         headerTitle.setForeground(new java.awt.Color(255, 255, 255));
+        headerTitle.setText("Trainer Profile");
 
-        headerDesc.setText("Account Settings");
         headerDesc.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
         headerDesc.setForeground(new java.awt.Color(242, 146, 22));
+        headerDesc.setText("Account Settings");
 
         javax.swing.GroupLayout contentHeaderLayout = new javax.swing.GroupLayout(contentHeader);
         contentHeader.setLayout(contentHeaderLayout);
@@ -397,9 +397,6 @@ public class TrainerHome extends javax.swing.JFrame {
         updateHistoryBtn.setText("Update Session");
         updateHistoryBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         updateHistoryBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                updateHistoryBtnMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 updateHistoryBtnMouseEntered(evt);
             }
@@ -626,8 +623,8 @@ public class TrainerHome extends javax.swing.JFrame {
         profile.add(passF, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 343, 30));
 
         jSeparator6.setBackground(new java.awt.Color(242, 146, 22));
-        jSeparator6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jSeparator6.setForeground(new java.awt.Color(242, 146, 22));
+        jSeparator6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         profile.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 340, 10));
 
         jLabel19.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -643,8 +640,8 @@ public class TrainerHome extends javax.swing.JFrame {
         profile.add(emailF, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 343, 30));
 
         jSeparator7.setBackground(new java.awt.Color(242, 146, 22));
-        jSeparator7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jSeparator7.setForeground(new java.awt.Color(242, 146, 22));
+        jSeparator7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         profile.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 340, 10));
 
         LabelChanger.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -665,18 +662,18 @@ public class TrainerHome extends javax.swing.JFrame {
         profile.add(nameF, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 343, 30));
 
         jSeparator10.setBackground(new java.awt.Color(242, 146, 22));
-        jSeparator10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jSeparator10.setForeground(new java.awt.Color(242, 146, 22));
+        jSeparator10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         profile.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 340, 10));
 
         jPanel4.setBackground(new java.awt.Color(25, 24, 28));
         jPanel4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(242, 146, 22)));
 
+        updateBtn.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        updateBtn.setForeground(new java.awt.Color(255, 255, 255));
         updateBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         updateBtn.setText("Update Changes");
         updateBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        updateBtn.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        updateBtn.setForeground(new java.awt.Color(255, 255, 255));
         updateBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 updateBtnMouseClicked(evt);
@@ -710,8 +707,8 @@ public class TrainerHome extends javax.swing.JFrame {
         profile.add(cpassF, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 343, 30));
 
         jSeparator9.setBackground(new java.awt.Color(242, 146, 22));
-        jSeparator9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jSeparator9.setForeground(new java.awt.Color(242, 146, 22));
+        jSeparator9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         profile.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 340, 10));
 
         jLabel14.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -727,8 +724,8 @@ public class TrainerHome extends javax.swing.JFrame {
         profile.add(specialtyBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 343, 30));
 
         jSeparator11.setBackground(new java.awt.Color(242, 146, 22));
-        jSeparator11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jSeparator11.setForeground(new java.awt.Color(242, 146, 22));
+        jSeparator11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         profile.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 340, 10));
 
         jLabel22.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -736,10 +733,10 @@ public class TrainerHome extends javax.swing.JFrame {
         jLabel22.setText("USERNAME");
         profile.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
-        profileBack.setText("Back");
-        profileBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         profileBack.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
         profileBack.setForeground(new java.awt.Color(242, 146, 22));
+        profileBack.setText("Back");
+        profileBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         profileBack.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 profileBackMouseClicked(evt);
@@ -756,14 +753,14 @@ public class TrainerHome extends javax.swing.JFrame {
         header.setBackground(new java.awt.Color(38, 38, 38));
         header.setForeground(new java.awt.Color(255, 255, 255));
 
-        welcomemsg.setText("Hello, Trainer Name!");
         welcomemsg.setFont(new java.awt.Font("Century Gothic", 0, 40)); // NOI18N
         welcomemsg.setForeground(new java.awt.Color(255, 255, 255));
+        welcomemsg.setText("Hello, Trainer Name!");
 
-        jLabel4.setText("Welcome back.");
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel4.setText("Welcome back.");
 
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
@@ -792,6 +789,7 @@ public class TrainerHome extends javax.swing.JFrame {
 
         jScrollPane1.setBorder(null);
 
+        sessionTable.setBackground(new java.awt.Color(240, 240, 240));
         sessionTable.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         sessionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -804,7 +802,6 @@ public class TrainerHome extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        sessionTable.setBackground(new java.awt.Color(240, 240, 240));
         sessionTable.setGridColor(new java.awt.Color(102, 102, 102));
         sessionTable.setRowHeight(30);
         sessionTable.setSelectionBackground(new java.awt.Color(242, 146, 22));
@@ -812,9 +809,9 @@ public class TrainerHome extends javax.swing.JFrame {
         sessionTable.setShowVerticalLines(false);
         jScrollPane1.setViewportView(sessionTable);
 
-        jLabel17.setText("Upcoming Training Sessions");
         jLabel17.setFont(new java.awt.Font("Century Gothic", 0, 33)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(242, 146, 22));
+        jLabel17.setText("Upcoming Training Sessions");
 
         javax.swing.GroupLayout bodyLayout = new javax.swing.GroupLayout(body);
         body.setLayout(bodyLayout);
@@ -1070,28 +1067,6 @@ public class TrainerHome extends javax.swing.JFrame {
         profile.setVisible(false);
         createmsg.setText("");
     }//GEN-LAST:event_jLabel26MouseClicked
-
-    private void updateHistoryBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateHistoryBtnMouseClicked
-        UpdateTrainingRecord update = new UpdateTrainingRecord(this, true, getUser().getTrainingsession().get(historytb.getSelectedRow()));
-        update.setVisible(true);
-        if (getUser().getTrainingsession().get(historytb.getSelectedRow()) instanceof PersonalTraining) {
-            PersonalTraining personal = (PersonalTraining) getUser().getTrainingsession().get(historytb.getSelectedRow());
-            personal.setDate(update.getDates());
-            personal.setFee(update.getFee());
-            personal.setStatus(update.getStatus());
-            personal.setTime(update.getTimes());
-            personal.setNotes(update.getNotes());
-        }
-        else {
-            GroupTraining group = (GroupTraining) getUser().getTrainingsession().get(historytb.getSelectedRow());
-            group.setDate(update.getDates());
-            group.setFee(update.getFee());
-            group.setStatus(update.getStatus());
-            group.setTime(update.getTimes());
-            group.setClassType(update.getClassType());
-        }
-        historyModel.fireTableDataChanged();
-    }//GEN-LAST:event_updateHistoryBtnMouseClicked
 
     private HELPFit helpfit;
     private String username;

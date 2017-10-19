@@ -1,8 +1,5 @@
 
 import java.awt.Color;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,34 +16,9 @@ public class UpdateTrainingRecord extends javax.swing.JDialog {
     /**
      * Creates new form UpdateTrainingRecord
      */
-    public UpdateTrainingRecord(java.awt.Frame parent, boolean modal, TrainingSession trainingsession) {
+    public UpdateTrainingRecord(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
-        titleLabel.setText(trainingsession.getTitle());
-        date.setDate(trainingsession.getDate());
-        time.setTime(trainingsession.getTime());
-        feeTF.setText(String.format("%4.2f", trainingsession.getFee()));
-        statBox.setSelectedItem(trainingsession.getStatus());
-        
-        if (trainingsession instanceof PersonalTraining) {
-            TypeTitleLabel.setVisible(false);
-            typeBox.setVisible(false);
-            PersonalTraining personal = (PersonalTraining) trainingsession;
-            notesTF.setText(personal.getNotes());
-            maxPartLabel.setVisible(false);
-            maxPartTitleLabel.setVisible(false);
-            numPartLabel.setVisible(false);
-            numPartTitleLabel.setVisible(false);
-        }
-        else {
-            NotesTitleLabel.setVisible(false);
-            notesTF.setVisible(false);
-            notesLine.setVisible(false);
-            GroupTraining group = (GroupTraining) trainingsession;
-            typeBox.setSelectedItem(group.getClassType());
-            maxPartLabel.setText(Integer.toString(group.getMaxParticipants()));
-        }
     }
 
     /**
@@ -70,21 +42,17 @@ public class UpdateTrainingRecord extends javax.swing.JDialog {
         jLabel21 = new javax.swing.JLabel();
         TypeTitleLabel = new javax.swing.JLabel();
         maxPartLabel = new javax.swing.JLabel();
-        maxPartTitleLabel = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
         numPartLabel = new javax.swing.JLabel();
-        numPartTitleLabel = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
         NotesTitleLabel = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
-        statBox = new javax.swing.JComboBox<>();
-        date = new com.github.lgooddatepicker.components.DatePicker();
-        time = new com.github.lgooddatepicker.components.TimePicker();
-        nameF1 = new javax.swing.JTextField();
-        notesLine = new javax.swing.JSeparator();
-        notesTF = new javax.swing.JTextField();
+        typeTF = new javax.swing.JTextField();
+        dateTF = new javax.swing.JTextField();
+        timeTF = new javax.swing.JTextField();
         feeTF = new javax.swing.JTextField();
-        feeF2 = new javax.swing.JTextField();
-        jSeparator16 = new javax.swing.JSeparator();
-        typeBox = new javax.swing.JComboBox<>();
+        statTF = new javax.swing.JTextField();
+        notesTF = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -92,7 +60,7 @@ public class UpdateTrainingRecord extends javax.swing.JDialog {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel13.setForeground(new java.awt.Color(153, 153, 153));
         jLabel13.setText("Date");
         jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
@@ -105,9 +73,6 @@ public class UpdateTrainingRecord extends javax.swing.JDialog {
         updateBtn.setText("Update");
         updateBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         updateBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                updateBtnMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 updateBtnMouseEntered(evt);
             }
@@ -135,57 +100,54 @@ public class UpdateTrainingRecord extends javax.swing.JDialog {
         jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel17.setForeground(new java.awt.Color(153, 153, 153));
         jLabel17.setText("Title");
         jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel19.setForeground(new java.awt.Color(153, 153, 153));
         jLabel19.setText("Status");
         jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, -1, -1));
 
-        titleLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         titleLabel.setForeground(new java.awt.Color(255, 255, 255));
         titleLabel.setText("title");
         jPanel3.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel20.setForeground(new java.awt.Color(153, 153, 153));
         jLabel20.setText("Time");
         jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel21.setForeground(new java.awt.Color(153, 153, 153));
         jLabel21.setText("Fee");
         jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, -1, -1));
 
         TypeTitleLabel.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        TypeTitleLabel.setForeground(new java.awt.Color(255, 153, 0));
+        TypeTitleLabel.setForeground(new java.awt.Color(153, 153, 153));
         TypeTitleLabel.setText("Type");
         jPanel3.add(TypeTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, -1, -1));
 
-        maxPartLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         maxPartLabel.setForeground(new java.awt.Color(255, 255, 255));
         maxPartLabel.setText("max");
-        jPanel3.add(maxPartLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 630, -1, -1));
+        jPanel3.add(maxPartLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 640, -1, -1));
 
-        maxPartTitleLabel.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        maxPartTitleLabel.setForeground(new java.awt.Color(255, 153, 0));
-        maxPartTitleLabel.setText("Max. Participants");
-        jPanel3.add(maxPartTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 610, -1, -1));
+        jLabel23.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel23.setText("Max. Participants");
+        jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 620, -1, -1));
 
-        numPartLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         numPartLabel.setForeground(new java.awt.Color(255, 255, 255));
         numPartLabel.setText("number");
         jPanel3.add(numPartLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 710, -1, -1));
 
-        numPartTitleLabel.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        numPartTitleLabel.setForeground(new java.awt.Color(255, 153, 0));
-        numPartTitleLabel.setText("Number of Participants");
-        jPanel3.add(numPartTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 690, -1, -1));
+        jLabel27.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel27.setText("Number of Participants");
+        jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 690, -1, -1));
 
         NotesTitleLabel.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        NotesTitleLabel.setForeground(new java.awt.Color(255, 153, 0));
+        NotesTitleLabel.setForeground(new java.awt.Color(153, 153, 153));
         NotesTitleLabel.setText("Notes");
         jPanel3.add(NotesTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, -1, -1));
 
@@ -194,62 +156,53 @@ public class UpdateTrainingRecord extends javax.swing.JDialog {
         jSeparator7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel3.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 340, 10));
 
-        statBox.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        statBox.setForeground(new java.awt.Color(255, 255, 255));
-        statBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cancelled", "Completed", "Available" }));
-        jPanel3.add(statBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 320, -1));
+        typeTF.setText("type");
+        typeTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                typeTFActionPerformed(evt);
+            }
+        });
+        jPanel3.add(typeTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 560, 320, -1));
 
-        date.setBackground(new java.awt.Color(25, 24, 28));
-        date.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jPanel3.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 320, 30));
+        dateTF.setText("date");
+        dateTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateTFActionPerformed(evt);
+            }
+        });
+        jPanel3.add(dateTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 320, -1));
 
-        time.setBackground(new java.awt.Color(25, 24, 28));
-        time.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jPanel3.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 320, 30));
+        timeTF.setText("time");
+        timeTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                timeTFActionPerformed(evt);
+            }
+        });
+        jPanel3.add(timeTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 320, -1));
 
-        nameF1.setBackground(new java.awt.Color(25, 24, 28));
-        nameF1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        nameF1.setForeground(new java.awt.Color(255, 255, 255));
-        nameF1.setText("RM");
-        nameF1.setBorder(null);
-        nameF1.setFocusable(false);
-        jPanel3.add(nameF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 30, 30));
+        feeTF.setText("fee");
+        feeTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                feeTFActionPerformed(evt);
+            }
+        });
+        jPanel3.add(feeTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 320, -1));
 
-        notesLine.setBackground(new java.awt.Color(242, 146, 22));
-        notesLine.setForeground(new java.awt.Color(242, 146, 22));
-        notesLine.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel3.add(notesLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 590, 320, 10));
+        statTF.setText("stat");
+        statTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statTFActionPerformed(evt);
+            }
+        });
+        jPanel3.add(statTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 320, -1));
 
-        notesTF.setBackground(new java.awt.Color(25, 24, 28));
-        notesTF.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        notesTF.setForeground(new java.awt.Color(255, 255, 255));
         notesTF.setText("notes");
-        notesTF.setBorder(null);
-        jPanel3.add(notesTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 560, 290, 30));
-
-        feeTF.setBackground(new java.awt.Color(25, 24, 28));
-        feeTF.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        feeTF.setForeground(new java.awt.Color(255, 255, 255));
-        feeTF.setText("500.00");
-        feeTF.setBorder(null);
-        jPanel3.add(feeTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 290, 30));
-
-        feeF2.setBackground(new java.awt.Color(25, 24, 28));
-        feeF2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        feeF2.setForeground(new java.awt.Color(255, 255, 255));
-        feeF2.setText("500.00");
-        feeF2.setBorder(null);
-        jPanel3.add(feeF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 290, 30));
-
-        jSeparator16.setBackground(new java.awt.Color(242, 146, 22));
-        jSeparator16.setForeground(new java.awt.Color(242, 146, 22));
-        jSeparator16.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel3.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 320, 10));
-
-        typeBox.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        typeBox.setForeground(new java.awt.Color(255, 255, 255));
-        typeBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dance", "MMA", "Sport" }));
-        jPanel3.add(typeBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 560, 320, -1));
+        notesTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                notesTFActionPerformed(evt);
+            }
+        });
+        jPanel3.add(notesTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 560, 320, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -268,6 +221,10 @@ public class UpdateTrainingRecord extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void typeTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_typeTFActionPerformed
+
     private void updateBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateBtnMouseExited
         updateBtn.setForeground(new Color(255,255,255));
     }//GEN-LAST:event_updateBtnMouseExited
@@ -276,37 +233,72 @@ public class UpdateTrainingRecord extends javax.swing.JDialog {
         updateBtn.setForeground(new Color(242,146,22));
     }//GEN-LAST:event_updateBtnMouseEntered
 
-    private void updateBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateBtnMouseClicked
-        dates = date.getDate();
-        times = time.getTime();
-        
-        try {
-        fee = Double.parseDouble(feeTF.getText());
-        }
-        catch(NumberFormatException nfe){
-            JOptionPane.showMessageDialog(this, "Please enter appropriate amount of fee.");
-            return;
-        }
-        
-        status = statBox.getSelectedItem().toString();
-        classType = typeBox.getSelectedItem().toString();
-        notes = notesTF.getText();
-        
-        this.setVisible(false);
-    }//GEN-LAST:event_updateBtnMouseClicked
+    private void dateTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateTFActionPerformed
 
-    private String classType;
-    private String notes;
-    private LocalDate dates;
-    private LocalTime times;
-    private double fee;
-    private String status;
-    
+    private void timeTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_timeTFActionPerformed
+
+    private void feeTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_feeTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_feeTFActionPerformed
+
+    private void statTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_statTFActionPerformed
+
+    private void notesTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notesTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_notesTFActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(UpdateTrainingRecord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(UpdateTrainingRecord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(UpdateTrainingRecord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(UpdateTrainingRecord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the dialog */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                UpdateTrainingRecord dialog = new UpdateTrainingRecord(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel NotesTitleLabel;
     private javax.swing.JLabel TypeTitleLabel;
-    private com.github.lgooddatepicker.components.DatePicker date;
-    private javax.swing.JTextField feeF2;
+    private javax.swing.JTextField dateTF;
     private javax.swing.JTextField feeTF;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
@@ -314,63 +306,18 @@ public class UpdateTrainingRecord extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JSeparator jSeparator16;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JLabel maxPartLabel;
-    private javax.swing.JLabel maxPartTitleLabel;
-    private javax.swing.JTextField nameF1;
-    private javax.swing.JSeparator notesLine;
     private javax.swing.JTextField notesTF;
     private javax.swing.JLabel numPartLabel;
-    private javax.swing.JLabel numPartTitleLabel;
-    private javax.swing.JComboBox<String> statBox;
-    private com.github.lgooddatepicker.components.TimePicker time;
+    private javax.swing.JTextField statTF;
+    private javax.swing.JTextField timeTF;
     private javax.swing.JLabel titleLabel;
-    private javax.swing.JComboBox<String> typeBox;
+    private javax.swing.JTextField typeTF;
     private javax.swing.JLabel updateBtn;
     // End of variables declaration//GEN-END:variables
-
-    /**
-     * @return the classType
-     */
-    public String getClassType() {
-        return classType;
-    }
-
-    /**
-     * @return the notes
-     */
-    public String getNotes() {
-        return notes;
-    }
-
-    /**
-     * @return the dates
-     */
-    public LocalDate getDates() {
-        return dates;
-    }
-
-    /**
-     * @return the times
-     */
-    public LocalTime getTimes() {
-        return times;
-    }
-
-    /**
-     * @return the fee
-     */
-    public double getFee() {
-        return fee;
-    }
-
-    /**
-     * @return the status
-     */
-    public String getStatus() {
-        return status;
-    }
 }

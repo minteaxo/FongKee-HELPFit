@@ -332,9 +332,6 @@ public class MemberHome extends javax.swing.JFrame {
         revBtn.setText("Review");
         revBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         revBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                revBtnMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 revBtnMouseEntered(evt);
             }
@@ -365,9 +362,6 @@ public class MemberHome extends javax.swing.JFrame {
         dropBtn.setText("Drop");
         dropBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         dropBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                dropBtnMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 dropBtnMouseEntered(evt);
             }
@@ -790,17 +784,6 @@ public class MemberHome extends javax.swing.JFrame {
         headerTitle.setText("View Training Sessions");
         headerDesc.setText("");
     }//GEN-LAST:event_viewBtnMouseClicked
-
-    private void revBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_revBtnMouseClicked
-        ReviewTrainer reviewtrainer = new ReviewTrainer(this, true, getUser().getTrainingsession().get(historytb.getSelectedRow()));
-        reviewtrainer.setVisible(true);
-    }//GEN-LAST:event_revBtnMouseClicked
-
-    private void dropBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dropBtnMouseClicked
-        getUser().getTrainingsession().remove(historytb.getSelectedRow());
-        helpfit.getSession().remove(historytb.getSelectedRow());
-        historyModel.fireTableDataChanged();
-    }//GEN-LAST:event_dropBtnMouseClicked
 
     private HELPFit helpfit;
     private String username;
