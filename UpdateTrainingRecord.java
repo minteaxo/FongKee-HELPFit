@@ -291,10 +291,11 @@ public class UpdateTrainingRecord extends javax.swing.JDialog {
         status = statBox.getSelectedItem().toString();
         classType = typeBox.getSelectedItem().toString();
         notes = notesTF.getText();
-        
+        updated = true;
         this.setVisible(false);
     }//GEN-LAST:event_updateBtnMouseClicked
-
+    
+    private boolean updated = false;
     private String classType;
     private String notes;
     private LocalDate dates;
@@ -372,5 +373,12 @@ public class UpdateTrainingRecord extends javax.swing.JDialog {
      */
     public String getStatus() {
         return status;
+    }
+
+    /**
+     * @return the updated
+     */
+    public boolean isUpdated() {
+        return updated;
     }
 }

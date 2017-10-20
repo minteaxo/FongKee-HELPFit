@@ -1074,23 +1074,26 @@ public class TrainerHome extends javax.swing.JFrame {
     private void updateHistoryBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateHistoryBtnMouseClicked
         UpdateTrainingRecord update = new UpdateTrainingRecord(this, true, getUser().getTrainingsession().get(historytb.getSelectedRow()));
         update.setVisible(true);
-        if (getUser().getTrainingsession().get(historytb.getSelectedRow()) instanceof PersonalTraining) {
-            PersonalTraining personal = (PersonalTraining) getUser().getTrainingsession().get(historytb.getSelectedRow());
-            personal.setDate(update.getDates());
-            personal.setFee(update.getFee());
-            personal.setStatus(update.getStatus());
-            personal.setTime(update.getTimes());
-            personal.setNotes(update.getNotes());
+        if (update.isUpdated()){
+            if (getUser().getTrainingsession().get(historytb.getSelectedRow()) instanceof PersonalTraining) {
+                PersonalTraining personal = (PersonalTraining) getUser().getTrainingsession().get(historytb.getSelectedRow());
+                personal.setDate(update.getDates());
+                personal.setFee(update.getFee());
+                personal.setStatus(update.getStatus());
+                personal.setTime(update.getTimes());
+                personal.setNotes(update.getNotes());
+            }
+            else {
+                GroupTraining group = (GroupTraining) getUser().getTrainingsession().get(historytb.getSelectedRow());
+                group.setDate(update.getDates());
+                group.setFee(update.getFee());
+                group.setStatus(update.getStatus());
+                group.setTime(update.getTimes());
+                group.setClassType(update.getClassType());
+            }
+            historyModel.fireTableDataChanged();
+            upcomingModel.fireTableDataChanged();
         }
-        else {
-            GroupTraining group = (GroupTraining) getUser().getTrainingsession().get(historytb.getSelectedRow());
-            group.setDate(update.getDates());
-            group.setFee(update.getFee());
-            group.setStatus(update.getStatus());
-            group.setTime(update.getTimes());
-            group.setClassType(update.getClassType());
-        }
-        historyModel.fireTableDataChanged();
     }//GEN-LAST:event_updateHistoryBtnMouseClicked
 
     private HELPFit helpfit;

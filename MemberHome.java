@@ -329,7 +329,7 @@ public class MemberHome extends javax.swing.JFrame {
         revBtn.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         revBtn.setForeground(new java.awt.Color(255, 255, 255));
         revBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        revBtn.setText("Review");
+        revBtn.setText("Review Trainer");
         revBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         revBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -362,7 +362,7 @@ public class MemberHome extends javax.swing.JFrame {
         dropBtn.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         dropBtn.setForeground(new java.awt.Color(255, 255, 255));
         dropBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        dropBtn.setText("Drop");
+        dropBtn.setText("Drop Session");
         dropBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         dropBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
