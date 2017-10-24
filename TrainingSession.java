@@ -16,6 +16,7 @@ import java.time.LocalTime;
 public abstract class TrainingSession {
     
     private static int id = 0001; 
+    private static int numParticipant = 0;
     private String sessionID;
     private String title;
     private LocalDate date;
@@ -117,6 +118,20 @@ public abstract class TrainingSession {
      */
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    /**
+     * @return the numParticipant
+     */
+    public static int getNumParticipant() {
+        return numParticipant;
+    }
+
+    /**
+     * @param aNumParticipant the numParticipant to set
+     */
+    public static void setNumParticipant(int aNumParticipant) {
+        numParticipant = aNumParticipant;
     }
     
     

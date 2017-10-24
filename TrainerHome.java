@@ -451,10 +451,9 @@ public class TrainerHome extends javax.swing.JFrame {
         newTraining.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 340, 10));
 
         titleF.setBackground(new java.awt.Color(25, 24, 28));
+        titleF.setBorder(null);
         titleF.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         titleF.setForeground(new java.awt.Color(255, 255, 255));
-        titleF.setText("Weightlifting Foundations");
-        titleF.setBorder(null);
         newTraining.add(titleF, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 343, 30));
 
         jLabel15.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -477,12 +476,12 @@ public class TrainerHome extends javax.swing.JFrame {
         jLabel24.setText("FEE");
         newTraining.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, -1, -1));
 
-        nameF1.setBackground(new java.awt.Color(25, 24, 28));
-        nameF1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        nameF1.setForeground(new java.awt.Color(255, 255, 255));
         nameF1.setText("RM");
+        nameF1.setBackground(new java.awt.Color(25, 24, 28));
         nameF1.setBorder(null);
         nameF1.setFocusable(false);
+        nameF1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        nameF1.setForeground(new java.awt.Color(255, 255, 255));
         newTraining.add(nameF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 30, 30));
 
         jSeparator15.setBackground(new java.awt.Color(242, 146, 22));
@@ -534,15 +533,14 @@ public class TrainerHome extends javax.swing.JFrame {
         newTraining.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
         feeF.setBackground(new java.awt.Color(25, 24, 28));
+        feeF.setBorder(null);
         feeF.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         feeF.setForeground(new java.awt.Color(255, 255, 255));
-        feeF.setText("500.00");
-        feeF.setBorder(null);
         newTraining.add(feeF, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 320, 30));
 
+        classtype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dance", "MMA", "Sport" }));
         classtype.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         classtype.setForeground(new java.awt.Color(255, 255, 255));
-        classtype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dance", "MMA", "Sport" }));
         newTraining.add(classtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 340, -1));
 
         jLabel18.setBackground(new java.awt.Color(242, 146, 22));
@@ -647,9 +645,9 @@ public class TrainerHome extends javax.swing.JFrame {
         jSeparator7.setForeground(new java.awt.Color(242, 146, 22));
         profile.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 340, 10));
 
+        LabelChanger.setText("SPECIALTY");
         LabelChanger.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         LabelChanger.setForeground(new java.awt.Color(242, 146, 22));
-        LabelChanger.setText("LEVEL");
         profile.add(LabelChanger, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -915,6 +913,12 @@ public class TrainerHome extends javax.swing.JFrame {
     }//GEN-LAST:event_viewBtnMouseExited
 
     private void updateBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateBtnMouseClicked
+        if (nameF.getText().isEmpty() || passF.getText().isEmpty() ||
+                emailF.getText().isEmpty() || specialtyBox.getText().isEmpty()){
+            updatemsg.setForeground(new Color(255,51,51));
+            updatemsg.setText("Please fill the empty fields.");
+            return;
+        }
         if (!cpassF.getText().equals(passF.getText())){
             updatemsg.setForeground(new Color(255,51,51));
             updatemsg.setText("Password does not match.");
@@ -1031,7 +1035,12 @@ public class TrainerHome extends javax.swing.JFrame {
 
     private void createSessionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createSessionMouseClicked
         double fee;
-        
+        if (titleF.getText().isEmpty() || time.getText().isEmpty() || 
+        date.getText().isEmpty() || feeF.getText().isEmpty()){
+            createmsg.setForeground(Color.red);
+            createmsg.setText("Please fill the empty fields.");
+            return;
+        }      
         try {
         fee = Double.parseDouble(feeF.getText());
         }

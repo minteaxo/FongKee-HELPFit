@@ -726,6 +726,13 @@ public class MemberHome extends javax.swing.JFrame {
     }//GEN-LAST:event_profileBtnMouseClicked
 
     private void updateBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateBtnMouseClicked
+        if (nameF.getText().isEmpty() || passF.getText().isEmpty() ||
+                emailF.getText().isEmpty()){
+            updatemsg.setForeground(new Color(255,51,51));
+            updatemsg.setText("Please fill the empty fields.");
+            return;
+        }
+        
         if (!cpassF.getText().equals(passF.getText())){
             updatemsg.setForeground(new Color(255,51,51));
             updatemsg.setText("Password does not match.");

@@ -546,6 +546,12 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel18MouseClicked
 
     private void createBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createBtnMouseClicked
+        if (userF.getText().isEmpty() || passF.getText().isEmpty() || nameF.getText().isEmpty() ||
+                emailF.getText().isEmpty() || specialtyBox.getText().isEmpty()){
+            JOptionPane.showMessageDialog(Signup, "Please fill the empty fields.");
+            return;
+        }
+        
         for (User aUser:getHelpfit().getUser()){
             if (aUser.getUsername().equalsIgnoreCase(userF.getText())){
                 JOptionPane.showMessageDialog(Signup, "Username has been taken!");
