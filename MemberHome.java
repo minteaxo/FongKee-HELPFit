@@ -1,5 +1,7 @@
 
 import java.awt.Color;
+import java.time.LocalTime;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 
 /*
@@ -35,15 +37,26 @@ public class MemberHome extends javax.swing.JFrame {
         usernameLabel.setText(getUser().getUsername());
         welcomemsg.setText("Hello, Member " + getUser().getName());
         history.setVisible(false);
+        enroll.setVisible(false);
         upcomingModel = new UpcomingMModel(getUser());
         sessionTable.setModel(upcomingModel);
         historyModel = new MemberHistoryModel(getUser());
         historytb.setModel(historyModel);
+        enrollModel = new EnrollTableModel(helpfit, getUser());
+        enrollTable.setModel(enrollModel);
+        for (int i = upcomingModel.getRowCount() - 1; i >= 0; i--) {
+            if (upcomingModel.getValueAt(i, 0) == null) {
+                upcomingModel.removeRow(i);            
+            }
+        }
         for (int i = 0; i < sessionTable.getModel().getColumnCount(); i++) {
                 sessionTable.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);            
         }
         for (int i = 0; i < historytb.getModel().getColumnCount(); i++) {
                 historytb.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);            
+        }  
+        for (int i = 0; i < enrollTable.getModel().getColumnCount(); i++) {
+                enrollTable.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);            
         }  
     }
 
@@ -71,6 +84,13 @@ public class MemberHome extends javax.swing.JFrame {
         contentHeader = new javax.swing.JPanel();
         headerTitle = new javax.swing.JLabel();
         headerDesc = new javax.swing.JLabel();
+        enroll = new javax.swing.JPanel();
+        enrollBack = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        enrollTable = new javax.swing.JTable();
+        jPanel10 = new javax.swing.JPanel();
+        enrollSession = new javax.swing.JLabel();
         history = new javax.swing.JPanel();
         historyBack = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -180,6 +200,9 @@ public class MemberHome extends javax.swing.JFrame {
         enrollBtn.setText("Enroll Training Session");
         enrollBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         enrollBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                enrollBtnMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 enrollBtnMouseEntered(evt);
             }
@@ -284,6 +307,80 @@ public class MemberHome extends javax.swing.JFrame {
         );
 
         getContentPane().add(contentHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 770, 160));
+
+        enroll.setBackground(new java.awt.Color(25, 24, 28));
+        enroll.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        enrollBack.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
+        enrollBack.setForeground(new java.awt.Color(242, 146, 22));
+        enrollBack.setText("Back");
+        enrollBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        enrollBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                enrollBackMouseClicked(evt);
+            }
+        });
+        enroll.add(enrollBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 60, 30));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/back.png"))); // NOI18N
+        jLabel7.setText("jLabel3");
+        enroll.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 30, 30));
+
+        enrollTable.setBackground(new java.awt.Color(240, 240, 240));
+        enrollTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        enrollTable.setRowHeight(30);
+        enrollTable.setSelectionBackground(new java.awt.Color(242, 146, 22));
+        enrollTable.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        enrollTable.setShowHorizontalLines(false);
+        enrollTable.setShowVerticalLines(false);
+        jScrollPane4.setViewportView(enrollTable);
+
+        enroll.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 700, 310));
+
+        jPanel10.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel10.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(242, 146, 22)));
+
+        enrollSession.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        enrollSession.setForeground(new java.awt.Color(255, 255, 255));
+        enrollSession.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        enrollSession.setText("Enroll Session");
+        enrollSession.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        enrollSession.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                enrollSessionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                enrollSessionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                enrollSessionMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(enrollSession, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(enrollSession, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+        );
+
+        enroll.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 700, -1));
+
+        getContentPane().add(enroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 770, 470));
 
         history.setBackground(new java.awt.Color(25, 24, 28));
         history.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -723,6 +820,7 @@ public class MemberHome extends javax.swing.JFrame {
         header.setVisible(false);
         updatemsg.setText("");
         history.setVisible(false);
+        enroll.setVisible(false);
     }//GEN-LAST:event_profileBtnMouseClicked
 
     private void updateBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateBtnMouseClicked
@@ -796,11 +894,17 @@ public class MemberHome extends javax.swing.JFrame {
         profile.setVisible(false);
         headerTitle.setText("View Training Sessions");
         headerDesc.setText("");
+        enroll.setVisible(false);
     }//GEN-LAST:event_viewBtnMouseClicked
 
     private void revBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_revBtnMouseClicked
         ReviewTrainer reviewtrainer = new ReviewTrainer(this, true, getUser().getTrainingsession().get(historytb.getSelectedRow()));
         reviewtrainer.setVisible(true);
+        
+        if (reviewtrainer.isUpdated()) {
+            LocalTime timeStamp = LocalTime.now();
+            Review review = new Review(timeStamp, reviewtrainer.getRatings(), reviewtrainer.getComments());
+        }
     }//GEN-LAST:event_revBtnMouseClicked
 
     private void dropBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dropBtnMouseClicked
@@ -809,11 +913,68 @@ public class MemberHome extends javax.swing.JFrame {
         historyModel.fireTableDataChanged();
     }//GEN-LAST:event_dropBtnMouseClicked
 
+    private void enrollBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrollBackMouseClicked
+        contentHeader.setVisible(false);
+        enroll.setVisible(false);
+        body.setVisible(true);
+        header.setVisible(true);
+    }//GEN-LAST:event_enrollBackMouseClicked
+
+    private void enrollSessionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrollSessionMouseClicked
+        if (enrollTable.getSelectedRow() == -1){
+            JOptionPane.showMessageDialog(this, "Please select a session first.");
+            return;
+        }
+        for (TrainingSession aSession: getUser().getTrainingsession()){
+            if (aSession.getDate().equals(enrollModel.sessionSelected(enrollTable.getSelectedRow()).getDate())
+                    && aSession.getTime().equals(enrollModel.sessionSelected(enrollTable.getSelectedRow()).getTime())){
+                JOptionPane.showMessageDialog(this, "You have already enrolled another session with the same period.");
+                return;
+            }
+        }
+        getUser().getTrainingsession().add(enrollModel.sessionSelected(enrollTable.getSelectedRow()));
+        TrainingSession session = getUser().getTrainingsession().get(getUser().getTrainingsession().size()-1);
+        if (session instanceof GroupTraining){
+            GroupTraining gSession = (GroupTraining)session;
+            gSession.setNumParticipants(gSession.getNumParticipants()+1);
+            if (gSession.getMaxParticipants() == gSession.getNumParticipants()){
+                gSession.setStatus("Full");
+            }
+        }
+        for (int i = enrollModel.getRowCount() - 1; i >= 0; i--) {
+            if (enrollModel.getValueAt(i, 0) == null) {
+                enrollModel.removeRow(i);            
+            }
+        }
+        enrollModel.fireTableDataChanged();
+        historyModel.fireTableDataChanged();
+        upcomingModel.fireTableDataChanged();
+    }//GEN-LAST:event_enrollSessionMouseClicked
+
+    private void enrollSessionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrollSessionMouseEntered
+        enrollSession.setForeground(new Color(242,146,22));
+    }//GEN-LAST:event_enrollSessionMouseEntered
+
+    private void enrollSessionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrollSessionMouseExited
+        enrollSession.setForeground(new Color(255,255,255));
+    }//GEN-LAST:event_enrollSessionMouseExited
+
+    private void enrollBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrollBtnMouseClicked
+        history.setVisible(false);
+        contentHeader.setVisible(true);
+        body.setVisible(false);
+        header.setVisible(false);
+        profile.setVisible(false);
+        enroll.setVisible(true);
+        headerTitle.setText("Enroll Training Session");
+        headerDesc.setText("Select your desire session to enroll");
+    }//GEN-LAST:event_enrollBtnMouseClicked
     private HELPFit helpfit;
     private String username;
     private Login login;
     private UpcomingMModel upcomingModel;
     private MemberHistoryModel historyModel;
+    private EnrollTableModel enrollModel;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelChanger;
     private javax.swing.JPanel body;
@@ -822,7 +983,11 @@ public class MemberHome extends javax.swing.JFrame {
     private javax.swing.JPasswordField cpassF;
     private javax.swing.JLabel dropBtn;
     private javax.swing.JTextField emailF;
+    private javax.swing.JPanel enroll;
+    private javax.swing.JLabel enrollBack;
     private javax.swing.JLabel enrollBtn;
+    private javax.swing.JLabel enrollSession;
+    private javax.swing.JTable enrollTable;
     private javax.swing.JPanel header;
     private javax.swing.JLabel headerDesc;
     private javax.swing.JLabel headerTitle;
@@ -840,6 +1005,8 @@ public class MemberHome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -849,6 +1016,7 @@ public class MemberHome extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator6;
