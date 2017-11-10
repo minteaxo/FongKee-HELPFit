@@ -51,8 +51,10 @@ public class EnrollTableModel extends AbstractTableModel {
                 return "Time";
             case 4:
                 return "Fee";
-            default:
+            case 5:
                 return "Type";
+            default:
+                return "Status";
         }
     }
     
@@ -68,23 +70,25 @@ public class EnrollTableModel extends AbstractTableModel {
         }
         if (trainingsession.getStatus().equalsIgnoreCase("Available")){
         
-        switch(col) {
-            case 0:
-                return trainingsession.getSessionID();
-            case 1:
-                return trainingsession.getTitle();
-            case 2:
-                return trainingsession.getDate();
-            case 3:
-                return trainingsession.getTime();
-            case 4:
-                return trainingsession.getFee();
-            default:
-                if (trainingsession instanceof PersonalTraining)
-                    return "Personal";
-                else
-                    return "Group";
-        }
+            switch(col) {
+                case 0:
+                    return trainingsession.getSessionID();
+                case 1:
+                    return trainingsession.getTitle();
+                case 2:
+                    return trainingsession.getDate();
+                case 3:
+                    return trainingsession.getTime();
+                case 4:
+                    return trainingsession.getFee();
+                case 5:
+                    if (trainingsession instanceof PersonalTraining)
+                        return "Personal";
+                    else
+                        return "Group";
+                default:
+                    return trainingsession.getStatus();
+            }
         }
         return null;
     }
@@ -98,7 +102,7 @@ public class EnrollTableModel extends AbstractTableModel {
     }
     
     public int getColumnCount() {
-        return 6;
+        return 7;
     }
 
     /**

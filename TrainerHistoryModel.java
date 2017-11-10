@@ -32,8 +32,10 @@ public class TrainerHistoryModel extends AbstractTableModel {
                 return "Date";
             case 4:
                 return "Time";
-            default:
+            case 5:
                 return "Type";
+            default:
+                return "Status";
         }
     }
     
@@ -52,11 +54,13 @@ public class TrainerHistoryModel extends AbstractTableModel {
                 return trainingsession.getDate();
             case 4:
                 return trainingsession.getTime();
-            default:
+            case 5:
                 if (trainingsession instanceof PersonalTraining)
                     return "Personal";
                 else
                     return "Group";
+            default:
+                return trainingsession.getStatus();
         }
     }
     
@@ -65,7 +69,7 @@ public class TrainerHistoryModel extends AbstractTableModel {
     }
     
     public int getColumnCount() {
-        return 6;
+        return 7;
     }
 
     /**

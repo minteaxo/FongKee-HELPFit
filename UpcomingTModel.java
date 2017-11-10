@@ -41,7 +41,8 @@ public class UpcomingTModel extends AbstractTableModel {
         
         TrainingSession trainingsession = trainer.getTrainingsession().get(row);
         
-        if (!trainingsession.getStatus().equalsIgnoreCase("Completed")){
+        if (!(trainingsession.getStatus().equalsIgnoreCase("Completed") || 
+                trainingsession.getStatus().equalsIgnoreCase("Cancelled"))){
         
         switch(col) {
             case 0:
@@ -62,6 +63,10 @@ public class UpcomingTModel extends AbstractTableModel {
         }
         }
         return null;
+    }
+    
+    public void removeRow(int row){
+        trainer.getTrainingsession().remove(row);
     }
     
     public int getRowCount() {

@@ -44,11 +44,11 @@ public class MemberHome extends javax.swing.JFrame {
         historytb.setModel(historyModel);
         enrollModel = new EnrollTableModel(helpfit, getUser());
         enrollTable.setModel(enrollModel);
-        for (int i = upcomingModel.getRowCount() - 1; i >= 0; i--) {
+        /*for (int i = upcomingModel.getRowCount() - 1; i >= 0; i--) {
             if (upcomingModel.getValueAt(i, 0) == null) {
                 upcomingModel.removeRow(i);            
             }
-        }
+        }*/
         for (int i = 0; i < sessionTable.getModel().getColumnCount(); i++) {
                 sessionTable.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);            
         }
@@ -91,6 +91,7 @@ public class MemberHome extends javax.swing.JFrame {
         enrollTable = new javax.swing.JTable();
         jPanel10 = new javax.swing.JPanel();
         enrollSession = new javax.swing.JLabel();
+        enrollmsg = new javax.swing.JLabel();
         history = new javax.swing.JPanel();
         historyBack = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -345,7 +346,7 @@ public class MemberHome extends javax.swing.JFrame {
         enrollTable.setShowVerticalLines(false);
         jScrollPane4.setViewportView(enrollTable);
 
-        enroll.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 700, 310));
+        enroll.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 700, 270));
 
         jPanel10.setBackground(new java.awt.Color(0, 0, 0));
         jPanel10.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(242, 146, 22)));
@@ -379,6 +380,11 @@ public class MemberHome extends javax.swing.JFrame {
         );
 
         enroll.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 700, -1));
+
+        enrollmsg.setBackground(new java.awt.Color(204, 0, 0));
+        enrollmsg.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        enrollmsg.setForeground(new java.awt.Color(255, 51, 51));
+        enroll.add(enrollmsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 700, 30));
 
         getContentPane().add(enroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 770, 470));
 
@@ -898,19 +904,27 @@ public class MemberHome extends javax.swing.JFrame {
     }//GEN-LAST:event_viewBtnMouseClicked
 
     private void revBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_revBtnMouseClicked
-        ReviewTrainer reviewtrainer = new ReviewTrainer(this, true, getUser().getTrainingsession().get(historytb.getSelectedRow()));
-        reviewtrainer.setVisible(true);
-        
-        if (reviewtrainer.isUpdated()) {
-            LocalTime timeStamp = LocalTime.now();
-            Review review = new Review(timeStamp, reviewtrainer.getRatings(), reviewtrainer.getComments());
+        int row = historytb.getSelectedRow();
+        if (getUser().getTrainingsession().get(row).getStatus().equalsIgnoreCase("completed")) {
+            ReviewTrainer reviewtrainer = new ReviewTrainer(this, true, getUser().getTrainingsession().get(row));
+            reviewtrainer.setVisible(true);
+
+            if (reviewtrainer.isUpdated()) {
+                LocalTime timeStamp = LocalTime.now();
+                Review review = new Review(timeStamp, reviewtrainer.getRatings(), reviewtrainer.getComments(), getUser());
+                getUser().getTrainingsession().get(row).getReview().add(review);
+            }
         }
+        else
+            JOptionPane.showMessageDialog(this, "Training session not complete yet!");
     }//GEN-LAST:event_revBtnMouseClicked
 
     private void dropBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dropBtnMouseClicked
+        enrollModel.getHelpfit().getSession().add(getUser().getTrainingsession().get(historytb.getSelectedRow()));
+        enrollModel.getHelpfit().getSession().get(enrollModel.getHelpfit().getSession().size()-1).setStatus("Avaialble");
         getUser().getTrainingsession().remove(historytb.getSelectedRow());
-        helpfit.getSession().remove(historytb.getSelectedRow());
         historyModel.fireTableDataChanged();
+        enrollModel.fireTableDataChanged();
     }//GEN-LAST:event_dropBtnMouseClicked
 
     private void enrollBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrollBackMouseClicked
@@ -941,14 +955,19 @@ public class MemberHome extends javax.swing.JFrame {
                 gSession.setStatus("Full");
             }
         }
-        for (int i = enrollModel.getRowCount() - 1; i >= 0; i--) {
-            if (enrollModel.getValueAt(i, 0) == null) {
-                enrollModel.removeRow(i);            
-            }
+        else{
+            session.setStatus("Full");
         }
+        /*for (int i = enrollModel.getRowCount() - 1; i >= 0; i--) {
+            if (enrollModel.getValueAt(i, 0) == null) {
+                enrollModel.removeRow(i);
+            }
+        }*/
         enrollModel.fireTableDataChanged();
         historyModel.fireTableDataChanged();
         upcomingModel.fireTableDataChanged();
+        enrollmsg.setForeground(Color.green);
+        enrollmsg.setText("Successfully enrolled in " + session.getTitle());
     }//GEN-LAST:event_enrollSessionMouseClicked
 
     private void enrollSessionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrollSessionMouseEntered
@@ -988,6 +1007,7 @@ public class MemberHome extends javax.swing.JFrame {
     private javax.swing.JLabel enrollBtn;
     private javax.swing.JLabel enrollSession;
     private javax.swing.JTable enrollTable;
+    private javax.swing.JLabel enrollmsg;
     private javax.swing.JPanel header;
     private javax.swing.JLabel headerDesc;
     private javax.swing.JLabel headerTitle;
