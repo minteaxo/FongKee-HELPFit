@@ -1,6 +1,7 @@
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 
 /*
@@ -16,13 +17,14 @@ import java.time.LocalTime;
 public abstract class TrainingSession {
     
     private static int id = 0001; 
-    private static int numParticipant = 0;
     private String sessionID;
     private String title;
     private LocalDate date;
     private LocalTime time;
     private double fee;
     private String status;
+    private Trainer user;
+    private ArrayList<Review> review;
     
     public TrainingSession(String title, LocalDate date,
             LocalTime time, double fee, String status){
@@ -33,6 +35,7 @@ public abstract class TrainingSession {
         setTime(time);
         setFee(fee);
         setStatus(status);
+        review = new ArrayList<Review>();
         
     }
 
@@ -121,18 +124,31 @@ public abstract class TrainingSession {
     }
 
     /**
-     * @return the numParticipant
+     * @return the user
      */
-    public static int getNumParticipant() {
-        return numParticipant;
+    public Trainer getUser() {
+        return user;
     }
 
     /**
-     * @param aNumParticipant the numParticipant to set
+     * @param user the user to set
      */
-    public static void setNumParticipant(int aNumParticipant) {
-        numParticipant = aNumParticipant;
+    public void setUser(Trainer user) {
+        this.user = user;
     }
-    
+
+    /**
+     * @return the review
+     */
+    public ArrayList<Review> getReview() {
+        return review;
+    }
+
+    /**
+     * @param review the review to set
+     */
+    public void setReview(ArrayList<Review> review) {
+        this.review = review;
+    }
     
 }

@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,6 +17,7 @@ public abstract class User {
     private String password;
     private String name;
     private String email;
+    private ArrayList<TrainingSession> trainingsession;
     
     public User(String username, String password, String name, 
             String email){
@@ -22,6 +26,7 @@ public abstract class User {
         setPassword(password);
         setName(name);
         setEmail(email);
+        trainingsession = new ArrayList<TrainingSession>();
         
     }
 
@@ -79,5 +84,19 @@ public abstract class User {
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    /**
+     * @return the trainingsession
+     */
+    public ArrayList<TrainingSession> getTrainingsession() {
+        return trainingsession;
+    }
+
+    /**
+     * @param trainingsession the trainingsession to set
+     */
+    public void setTrainingsession(ArrayList<TrainingSession> trainingsession) {
+        this.trainingsession = trainingsession;
     }
 }

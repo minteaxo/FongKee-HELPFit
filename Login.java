@@ -66,6 +66,7 @@ public class Login extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         nameF = new javax.swing.JTextField();
         jSeparator10 = new javax.swing.JSeparator();
+        filechooser = new javax.swing.JFileChooser();
         Right = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -84,7 +85,6 @@ public class Login extends javax.swing.JFrame {
         signupBtn = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        filechooser = new javax.swing.JFileChooser();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         load = new javax.swing.JMenuItem();
@@ -493,7 +493,6 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/bg_4.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, -1, 630));
-        getContentPane().add(filechooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jMenu1.setText("File");
 
@@ -713,7 +712,7 @@ public class Login extends javax.swing.JFrame {
             }
             catch(IOException | ClassNotFoundException ioe){
                 JOptionPane.showMessageDialog(filechooser, "The file selected"
-                        + "is not compatible to this application");
+                        + " is not compatible to this application");
             }
         }
     }//GEN-LAST:event_loadActionPerformed

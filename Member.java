@@ -12,30 +12,14 @@
 import java.util.ArrayList;
 
 public class Member extends User{
-
-    /**
-     * @return the trainingsession
-     */
-    public ArrayList<TrainingSession> getTrainingsession() {
-        return trainingsession;
-    }
-
-    /**
-     * @param trainingsession the trainingsession to set
-     */
-    public void setTrainingsession(ArrayList<TrainingSession> trainingsession) {
-        this.trainingsession = trainingsession;
-    }
     
     private String level;
-    private ArrayList<TrainingSession> trainingsession;
     
     public Member(String username, String password, String name, 
             String email, String level){
         
         super(username, password, name, email);
         setLevel(level);
-        trainingsession = new ArrayList<TrainingSession>();
     }
 
     /**

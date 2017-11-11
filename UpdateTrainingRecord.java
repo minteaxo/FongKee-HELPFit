@@ -46,6 +46,7 @@ public class UpdateTrainingRecord extends javax.swing.JDialog {
             GroupTraining group = (GroupTraining) trainingsession;
             typeBox.setSelectedItem(group.getClassType());
             maxPartLabel.setText(Integer.toString(group.getMaxParticipants()));
+            numPartLabel.setText(Integer.toString(group.getNumParticipants()));
         }
     }
 
@@ -164,19 +165,19 @@ public class UpdateTrainingRecord extends javax.swing.JDialog {
         TypeTitleLabel.setText("Type");
         jPanel3.add(TypeTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, -1, -1));
 
+        maxPartLabel.setText("max");
         maxPartLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         maxPartLabel.setForeground(new java.awt.Color(255, 255, 255));
-        maxPartLabel.setText("max");
         jPanel3.add(maxPartLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 630, -1, -1));
 
+        maxPartTitleLabel.setText("Max. Participants");
         maxPartTitleLabel.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         maxPartTitleLabel.setForeground(new java.awt.Color(255, 153, 0));
-        maxPartTitleLabel.setText("Max. Participants");
         jPanel3.add(maxPartTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 610, -1, -1));
 
+        numPartLabel.setText("number");
         numPartLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         numPartLabel.setForeground(new java.awt.Color(255, 255, 255));
-        numPartLabel.setText("number");
         jPanel3.add(numPartLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 710, -1, -1));
 
         numPartTitleLabel.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -194,9 +195,9 @@ public class UpdateTrainingRecord extends javax.swing.JDialog {
         jSeparator7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel3.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 340, 10));
 
+        statBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cancelled", "Full", "Completed", "Available" }));
         statBox.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         statBox.setForeground(new java.awt.Color(255, 255, 255));
-        statBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cancelled", "Completed", "Available" }));
         jPanel3.add(statBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 320, -1));
 
         date.setBackground(new java.awt.Color(25, 24, 28));
@@ -207,31 +208,31 @@ public class UpdateTrainingRecord extends javax.swing.JDialog {
         time.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jPanel3.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 320, 30));
 
-        nameF1.setBackground(new java.awt.Color(25, 24, 28));
-        nameF1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        nameF1.setForeground(new java.awt.Color(255, 255, 255));
         nameF1.setText("RM");
+        nameF1.setBackground(new java.awt.Color(25, 24, 28));
         nameF1.setBorder(null);
         nameF1.setFocusable(false);
+        nameF1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        nameF1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel3.add(nameF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 30, 30));
 
         notesLine.setBackground(new java.awt.Color(242, 146, 22));
-        notesLine.setForeground(new java.awt.Color(242, 146, 22));
         notesLine.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        notesLine.setForeground(new java.awt.Color(242, 146, 22));
         jPanel3.add(notesLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 590, 320, 10));
 
+        notesTF.setText("notes");
         notesTF.setBackground(new java.awt.Color(25, 24, 28));
+        notesTF.setBorder(null);
         notesTF.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         notesTF.setForeground(new java.awt.Color(255, 255, 255));
-        notesTF.setText("notes");
-        notesTF.setBorder(null);
         jPanel3.add(notesTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 560, 290, 30));
 
+        feeTF.setText("500.00");
         feeTF.setBackground(new java.awt.Color(25, 24, 28));
+        feeTF.setBorder(null);
         feeTF.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         feeTF.setForeground(new java.awt.Color(255, 255, 255));
-        feeTF.setText("500.00");
-        feeTF.setBorder(null);
         jPanel3.add(feeTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 290, 30));
 
         feeF2.setBackground(new java.awt.Color(25, 24, 28));
@@ -242,8 +243,8 @@ public class UpdateTrainingRecord extends javax.swing.JDialog {
         jPanel3.add(feeF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 290, 30));
 
         jSeparator16.setBackground(new java.awt.Color(242, 146, 22));
-        jSeparator16.setForeground(new java.awt.Color(242, 146, 22));
         jSeparator16.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jSeparator16.setForeground(new java.awt.Color(242, 146, 22));
         jPanel3.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 320, 10));
 
         typeBox.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N

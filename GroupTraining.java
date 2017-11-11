@@ -16,6 +16,7 @@ public class GroupTraining extends TrainingSession{
     
     private String classType;
     private int maxParticipants;
+    private int numParticipants = 0;
     
     public GroupTraining(String title, LocalDate date,
             LocalTime time, double fee, String status, String classType,
@@ -51,6 +52,20 @@ public class GroupTraining extends TrainingSession{
      */
     public void setMaxParticipants(int maxParticipants) {
         this.maxParticipants = maxParticipants;
+    }
+
+    /**
+     * @return the numParticipants
+     */
+    public int getNumParticipants() {
+        return numParticipants;
+    }
+
+    /**
+     * @param numParticipants the numParticipants to set
+     */
+    public void setNumParticipants(int numParticipants) {
+        this.numParticipants = numParticipants;
     }
     
 }

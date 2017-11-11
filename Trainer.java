@@ -14,14 +14,14 @@ import java.util.ArrayList;
 public class Trainer extends User {
     
     private String specialty;
-    private ArrayList<TrainingSession> trainingsession;
+    private double rating;
     
     public Trainer(String username, String password, String name, 
             String email, String specialty){
     
         super(username, password, name, email);
         setSpecialty(specialty);
-        trainingsession = new ArrayList<TrainingSession>();
+        setRating(0);
     }
 
     /**
@@ -39,17 +39,18 @@ public class Trainer extends User {
     }
 
     /**
-     * @return the trainingsession
+     * @return the rating
      */
-    public ArrayList<TrainingSession> getTrainingsession() {
-        return trainingsession;
+    public double getRating() {
+        return rating;
     }
 
     /**
-     * @param trainingsession the trainingsession to set
+     * @param rating the rating to set
      */
-    public void setTrainingsession(ArrayList<TrainingSession> trainingsession) {
-        this.trainingsession = trainingsession;
+    public void setRating(double rating) {
+        this.rating = rating;
     }
-    
+
+
 }

@@ -336,6 +336,7 @@ public class TrainerHome extends javax.swing.JFrame {
         jLabel6.setText("jLabel3");
         history.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 30, 30));
 
+        historytb.setAutoCreateRowSorter(true);
         historytb.setBackground(new java.awt.Color(240, 240, 240));
         historytb.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -348,6 +349,7 @@ public class TrainerHome extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        historytb.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         historytb.setGridColor(new java.awt.Color(102, 102, 102));
         historytb.setRowHeight(30);
         historytb.setSelectionBackground(new java.awt.Color(242, 146, 22));
@@ -367,6 +369,9 @@ public class TrainerHome extends javax.swing.JFrame {
         viewRevBtn.setText("View Review");
         viewRevBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         viewRevBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                viewRevBtnMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 viewRevBtnMouseEntered(evt);
             }
@@ -790,6 +795,7 @@ public class TrainerHome extends javax.swing.JFrame {
 
         jScrollPane1.setBorder(null);
 
+        sessionTable.setAutoCreateRowSorter(true);
         sessionTable.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         sessionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -802,6 +808,7 @@ public class TrainerHome extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        sessionTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         sessionTable.setBackground(new java.awt.Color(240, 240, 240));
         sessionTable.setGridColor(new java.awt.Color(102, 102, 102));
         sessionTable.setRowHeight(30);
@@ -969,6 +976,10 @@ public class TrainerHome extends javax.swing.JFrame {
         headerTitle.setText("Create New Training Session");
         headerDesc.setText("");
         maxPart.setVisible(false);
+        titleF.setText("");
+        feeF.setText("");
+        date.setText("");
+        time.setText("");
     }//GEN-LAST:event_createBtnMouseClicked
 
     private void historyBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historyBackMouseClicked
@@ -1047,22 +1058,23 @@ public class TrainerHome extends javax.swing.JFrame {
         catch(NumberFormatException nfe){
             createmsg.setForeground(Color.red);
             createmsg.setText("Please enter correct amount of fee.");
-            return;
+            return; 
         }
         
             if (pSeperator.isVisible()){
-                getUser().getTrainingsession().add(new PersonalTraining(titleF.getText(),
-                date.getDate(),time.getTime(),fee,"Available", ""));
-                getHelpfit().getSession().add(new PersonalTraining(titleF.getText(),
-                date.getDate(),time.getTime(),fee,"Available", ""));
+                PersonalTraining personal = new PersonalTraining(titleF.getText(),
+                date.getDate(),time.getTime(),fee,"Available", "");
+                getUser().getTrainingsession().add(personal);
+                getHelpfit().getSession().add(personal);
+                getHelpfit().getSession().get(getHelpfit().getSession().size()-1).setUser(getUser());
             }
             else{
-                getUser().getTrainingsession().add(new GroupTraining(titleF.getText(),
+                GroupTraining group = new GroupTraining(titleF.getText(),
                         date.getDate(),time.getTime(),fee,"Available",
-                        classtype.getSelectedItem().toString(),(int)maxPart.getValue()));
-                getHelpfit().getSession().add(new GroupTraining(titleF.getText(),
-                        date.getDate(),time.getTime(),fee,"Available",
-                        classtype.getSelectedItem().toString(),(int)maxPart.getValue()));
+                        classtype.getSelectedItem().toString(),(int)maxPart.getValue());
+                getUser().getTrainingsession().add(group);
+                getHelpfit().getSession().add(group);
+                getHelpfit().getSession().get(getHelpfit().getSession().size()-1).setUser(getUser());
             }
 
         createmsg.setForeground(Color.green);
@@ -1104,6 +1116,11 @@ public class TrainerHome extends javax.swing.JFrame {
             upcomingModel.fireTableDataChanged();
         }
     }//GEN-LAST:event_updateHistoryBtnMouseClicked
+
+    private void viewRevBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewRevBtnMouseClicked
+        ReadReview readreview = new ReadReview(this, true, getUser().getTrainingsession().get(historytb.getSelectedRow()), getUser());
+        readreview.setVisible(true);
+    }//GEN-LAST:event_viewRevBtnMouseClicked
 
     private HELPFit helpfit;
     private String username;
