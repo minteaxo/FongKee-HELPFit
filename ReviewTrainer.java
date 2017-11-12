@@ -30,7 +30,12 @@ public class ReviewTrainer extends javax.swing.JDialog {
             typeTitleLabel.setVisible(false);
             typeLabel.setVisible(false);
             PersonalTraining personal = (PersonalTraining) trainingsession;
-            notesLabel.setText(personal.getNotes());
+            if (personal.getNotes().isEmpty()) {
+                NotesTitleLabel.setVisible(false);
+                notesLabel.setVisible(false);
+            }
+            else
+                notesLabel.setText(personal.getNotes());
             maxPartLabel.setVisible(false);
             MaxPartTitleLabel.setVisible(false);
             numPartLabel.setVisible(false);

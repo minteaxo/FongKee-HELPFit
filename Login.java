@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /*
@@ -66,7 +67,6 @@ public class Login extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         nameF = new javax.swing.JTextField();
         jSeparator10 = new javax.swing.JSeparator();
-        filechooser = new javax.swing.JFileChooser();
         Right = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -85,10 +85,6 @@ public class Login extends javax.swing.JFrame {
         signupBtn = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        load = new javax.swing.JMenuItem();
-        save = new javax.swing.JMenuItem();
 
         Signup.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         Signup.setAlwaysOnTop(true);
@@ -494,30 +490,6 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/bg_4.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, -1, 630));
 
-        jMenu1.setText("File");
-
-        load.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
-        load.setText("Load");
-        load.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loadActionPerformed(evt);
-            }
-        });
-        jMenu1.add(load);
-
-        save.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        save.setText("Save");
-        save.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveActionPerformed(evt);
-            }
-        });
-        jMenu1.add(save);
-
-        jMenuBar1.add(jMenu1);
-
-        setJMenuBar(jMenuBar1);
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -671,52 +643,6 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_loginBtnMouseClicked
 
-    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-        int value = filechooser.showSaveDialog(this);
-        
-        if (value == filechooser.APPROVE_OPTION){
-            File file = filechooser.getSelectedFile();
-            ObjectOutputStream oos = null;
-            
-            try{
-                oos = new ObjectOutputStream(new FileOutputStream(file));
-                oos.writeObject(helpfit);
-                oos.flush();
-                oos.close();
-            }
-            catch(IOException ioe){
-                JOptionPane.showMessageDialog(filechooser, "An error occured.");
-            }
-        }
-    }//GEN-LAST:event_saveActionPerformed
-
-    private void loadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadActionPerformed
-        if (!(helpfit.getSession().isEmpty() && helpfit.getUser().isEmpty())){
-            int confirm = JOptionPane.showConfirmDialog(this, "Loading files "
-                    + "will overwrite the current data, are you sure?");
-            if (confirm !=0)
-                return;
-        }
-        int value = filechooser.showOpenDialog(this);
-        if (value==filechooser.APPROVE_OPTION){
-            File file = filechooser.getSelectedFile();
-            ObjectInputStream ois = null;
-            
-            try{
-                ois = new ObjectInputStream(new FileInputStream(file));
-                helpfit = (HELPFit) ois.readObject();
-                ois.close();
-            }
-            catch(FileNotFoundException fnfe){
-                JOptionPane.showMessageDialog(filechooser, "The file selected is not found");
-            }
-            catch(IOException | ClassNotFoundException ioe){
-                JOptionPane.showMessageDialog(filechooser, "The file selected"
-                        + " is not compatible to this application");
-            }
-        }
-    }//GEN-LAST:event_loadActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -763,7 +689,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator TrainerSeperator;
     private javax.swing.JLabel createBtn;
     private javax.swing.JTextField emailF;
-    private javax.swing.JFileChooser filechooser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -779,8 +704,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -793,12 +716,10 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JComboBox<String> levelBox;
-    private javax.swing.JMenuItem load;
     private javax.swing.JLabel loginBtn;
     private javax.swing.JTextField nameF;
     private javax.swing.JPasswordField passF;
     private javax.swing.JPasswordField passwordF;
-    private javax.swing.JMenuItem save;
     private javax.swing.JLabel signupBtn;
     private javax.swing.JTextField specialtyBox;
     private javax.swing.JTextField userF;

@@ -99,8 +99,6 @@ public class MemberHome extends javax.swing.JFrame {
         historytb = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         revBtn = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        dropBtn = new javax.swing.JLabel();
         profile = new javax.swing.JPanel();
         profileBack = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
@@ -450,47 +448,14 @@ public class MemberHome extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(revBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+            .addComponent(revBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(revBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
         );
 
-        history.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, -1, -1));
-
-        jPanel5.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel5.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(242, 146, 22)));
-
-        dropBtn.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        dropBtn.setForeground(new java.awt.Color(255, 255, 255));
-        dropBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        dropBtn.setText("Drop Session");
-        dropBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        dropBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                dropBtnMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                dropBtnMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                dropBtnMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dropBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dropBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-        );
-
-        history.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, -1, -1));
+        history.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 700, -1));
 
         getContentPane().add(history, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 770, 470));
 
@@ -827,6 +792,8 @@ public class MemberHome extends javax.swing.JFrame {
         updatemsg.setText("");
         history.setVisible(false);
         enroll.setVisible(false);
+        headerTitle.setText("Member Profile");
+        headerDesc.setText("Account Settings");
     }//GEN-LAST:event_profileBtnMouseClicked
 
     private void updateBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateBtnMouseClicked
@@ -884,14 +851,6 @@ public class MemberHome extends javax.swing.JFrame {
         revBtn.setForeground(new Color(255,255,255));
     }//GEN-LAST:event_revBtnMouseExited
 
-    private void dropBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dropBtnMouseEntered
-        dropBtn.setForeground(new Color(242,146,22));
-    }//GEN-LAST:event_dropBtnMouseEntered
-
-    private void dropBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dropBtnMouseExited
-        dropBtn.setForeground(new Color(255,255,255));
-    }//GEN-LAST:event_dropBtnMouseExited
-
     private void viewBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewBtnMouseClicked
         history.setVisible(true);
         contentHeader.setVisible(true);
@@ -918,14 +877,6 @@ public class MemberHome extends javax.swing.JFrame {
         else
             JOptionPane.showMessageDialog(this, "Training session not complete yet!");
     }//GEN-LAST:event_revBtnMouseClicked
-
-    private void dropBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dropBtnMouseClicked
-        enrollModel.getHelpfit().getSession().add(getUser().getTrainingsession().get(historytb.getSelectedRow()));
-        enrollModel.getHelpfit().getSession().get(enrollModel.getHelpfit().getSession().size()-1).setStatus("Avaialble");
-        getUser().getTrainingsession().remove(historytb.getSelectedRow());
-        historyModel.fireTableDataChanged();
-        enrollModel.fireTableDataChanged();
-    }//GEN-LAST:event_dropBtnMouseClicked
 
     private void enrollBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrollBackMouseClicked
         contentHeader.setVisible(false);
@@ -1000,7 +951,6 @@ public class MemberHome extends javax.swing.JFrame {
     private javax.swing.JPanel body1;
     private javax.swing.JPanel contentHeader;
     private javax.swing.JPasswordField cpassF;
-    private javax.swing.JLabel dropBtn;
     private javax.swing.JTextField emailF;
     private javax.swing.JPanel enroll;
     private javax.swing.JLabel enrollBack;
@@ -1030,7 +980,6 @@ public class MemberHome extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;

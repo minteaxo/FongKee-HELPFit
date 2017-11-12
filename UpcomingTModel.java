@@ -62,7 +62,7 @@ public class UpcomingTModel extends AbstractTableModel {
                     return "Group";
         }
         }
-        return null;
+        return "-";
     }
     
     public void removeRow(int row){

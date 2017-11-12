@@ -61,7 +61,7 @@ public class UpcomingMModel extends AbstractTableModel {
                     return "Group";
         }
         }
-        return null;
+        return "-";
     }
     public void removeRow(int row){
         member.getTrainingsession().remove(row);

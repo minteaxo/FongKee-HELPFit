@@ -1,5 +1,6 @@
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 
 /*
@@ -1118,8 +1119,13 @@ public class TrainerHome extends javax.swing.JFrame {
     }//GEN-LAST:event_updateHistoryBtnMouseClicked
 
     private void viewRevBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewRevBtnMouseClicked
-        ReadReview readreview = new ReadReview(this, true, getUser().getTrainingsession().get(historytb.getSelectedRow()), getUser());
-        readreview.setVisible(true);
+        int row = historytb.getSelectedRow();
+        if (getUser().getTrainingsession().get(row).getStatus().equalsIgnoreCase("completed")) {
+            ReadReview readreview = new ReadReview(this, true, getUser().getTrainingsession().get(historytb.getSelectedRow()), getUser());
+            readreview.setVisible(true);
+        }
+        else
+             JOptionPane.showMessageDialog(this, "Training session not complete yet!");
     }//GEN-LAST:event_viewRevBtnMouseClicked
 
     private HELPFit helpfit;

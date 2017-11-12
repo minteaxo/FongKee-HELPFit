@@ -61,13 +61,7 @@ public class EnrollTableModel extends AbstractTableModel {
     public Object getValueAt(int row, int col) {
         
         TrainingSession trainingsession = helpfit.getSession().get(row);
-        if (!member.getTrainingsession().isEmpty()){
-            for (TrainingSession session: getMember().getTrainingsession()){
-                if (trainingsession == session){
-                    return null;
-                }
-            }
-        }
+        
         if (trainingsession.getStatus().equalsIgnoreCase("Available")){
         
             switch(col) {
@@ -90,7 +84,7 @@ public class EnrollTableModel extends AbstractTableModel {
                     return trainingsession.getStatus();
             }
         }
-        return null;
+        return "-";
     }
     
     public void removeRow(int row){
